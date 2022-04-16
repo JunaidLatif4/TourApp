@@ -1,0 +1,18 @@
+.main_p{
+    width:100%;
+
+    .p_start{
+       
+        background: url(../../../../Assets/p_bg.jpg);
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        height: 270px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3.4rem;
+    }
+
+
+}
