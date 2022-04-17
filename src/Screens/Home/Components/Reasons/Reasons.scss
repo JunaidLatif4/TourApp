@@ -1,0 +1,47 @@
+.reasons_container {
+    background-color: RGB(245, 245, 245);
+    padding-bottom: 2rem;
+
+    .title {
+        background-color: green;
+        font-size: 1.7rem;
+        padding: .5rem;
+        text-align: center;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+        background-image: url(../../../../Assets/reason_back.jpg);
+
+        span {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+    }
+
+    .card_box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 2rem;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            color: #6d6d6d;
+
+            img {
+                width: 60%;
+            }
+
+            p {
+                text-align: center;
+                margin: 0 1rem;
+            }
+        }
+    }
+}

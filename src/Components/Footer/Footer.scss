@@ -1,0 +1,61 @@
+.footer_container {
+    background-color: RGB(22, 46, 92);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    gap: 3rem;
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        gap: .3rem;
+    }
+
+    .follow {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        align-items: center;
+
+        .heading {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .socials {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.7rem;
+
+        }
+
+        img {
+            width: 150px;
+            object-fit: cover;
+        }
+
+    }
+
+    .about {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        font-size: 1.5rem;
+
+        .title {
+
+        }
+        .find{
+            margin-top: 1rem;
+            p{
+                display: flex;
+                gap: .5rem;
+                align-items: center;
+                font-size: 1rem;
+            }
+        }
+    }
+}

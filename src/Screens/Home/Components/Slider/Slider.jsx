@@ -12,7 +12,7 @@ const Slider = () => {
         <>
             <div className="slider_container">
 
-                <Carousel showThumbs={false}>
+                <Carousel autoPlay showThumbs={false}>
                     <div>
                         <img src={Slider1} />
                     </div>
