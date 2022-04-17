@@ -116,7 +116,7 @@ const Book = () => {
                     <span> <MdEmail/> </span>
                     <span> <AiOutlineWechat/> </span>
                 </div>
-                <div style={{height:"2px"}} className="break"> </div>
+                <div className="break"> </div>
             </div>
         </>
     )

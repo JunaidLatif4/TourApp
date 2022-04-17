@@ -12,7 +12,7 @@ const Reasons = () => {
         <>
             <div className="reasons_container">
                 <div className="title">
-                    <span> 4 </span>reasons to choose Rabbie's
+                    <span> 4 </span>reasons to choose Craicin's
                 </div>
                 <div className="card_box">
                     <div className="card">
