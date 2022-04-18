@@ -11,6 +11,15 @@
         display: flex;
         flex-direction: column;
         gap: .3rem;
+
+        @media only screen and (max-width:750px) {
+            font-size: .8rem;
+        }
+
+        @media only screen and (max-width:650px) {
+            font-size: 1.3rem;
+            text-align: center;
+        }
     }
 
     .follow {
@@ -37,6 +46,35 @@
             object-fit: cover;
         }
 
+
+        @media only screen and (max-width:750px) {
+            .heading {
+                font-size: 1.5rem;
+            }
+
+            .socials {
+                font-size: 1.2rem;
+            }
+
+            img {
+                width: 120px;
+            }
+        }
+
+        @media only screen and (max-width:650px) {
+            .heading {
+                font-size: 2rem;
+            }
+
+            .socials {
+                font-size: 1.7rem;
+            }
+
+            img {
+                width: 150px;
+            }
+        }
+
     }
 
     .about {
@@ -45,17 +83,45 @@
         gap: .5rem;
         font-size: 1.5rem;
 
-        .title {
+        .title {}
 
-        }
-        .find{
+        .find {
             margin-top: 1rem;
-            p{
+
+            p {
                 display: flex;
                 gap: .5rem;
                 align-items: center;
                 font-size: 1rem;
             }
         }
+
+        @media only screen and (max-width:750px) {
+            font-size: 1.2rem;
+
+            .find {
+                p {
+                    font-size: .8rem;
+                }
+            }
+        }
+
+        @media only screen and (max-width:650px) {
+            font-size: 2rem;
+            text-align: center;
+
+            .find {
+                p {
+                    font-size: 1rem;
+                    text-align: center;
+                    justify-content: center;
+                }
+            }
+        }
     }
+
+    @media only screen and (max-width:650px) {
+        flex-direction: column;
+    }
+
 }

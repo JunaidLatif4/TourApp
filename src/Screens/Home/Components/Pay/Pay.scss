@@ -1,40 +1,48 @@
-.main_pay{
-    width: 100%;
+.main_pay {
+    width: -webkit-fill-available;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem;
 
-.pay_space{
-    width: 65%;
-    display: flex;
-    justify-content: space-between;
-}
-
-
-.pay1{
-    display: flex;
-    gap: 2rem;
-}
-.pay2{
-    display: flex;
-    gap: 2rem;
+    .pay_space {
+        // width: 65%;
+        display: flex;
+        justify-content: space-between;
+        @media only screen and (max-width:950px){
+            flex-direction: column;
+        }
+    }
 
 
+    .pay1 {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+        @media only screen and (max-width:950px){
+            flex-direction: column;
+        }
+    }
 
+    .pay2 {
+        display: flex;
+        gap: 2rem;
 
-.abt img {
+        .abt img {
+            width: 159px;
+            height: 70px;
 
-    width: 159px;
-    height:70px ;
+        }
 
-}
+        .top img {
+            width: 159px;
+            height: 70px;
+        }
 
+    }
 
-.top img{
-    width: 159px;
-    height:70px ;
-}
-
-}
+   
 
 }

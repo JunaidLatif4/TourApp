@@ -6,6 +6,7 @@
     background-color: black;
     color: white;
     z-index: -5;
+    // padding: 0 2rem;
 
     .back_img {
         position: absolute;
@@ -25,6 +26,7 @@
     }
 
     .navbar_box {
+        padding: 0 2rem;
         width: 1300px;
         display: flex;
         height: 100px;
@@ -76,6 +78,57 @@
                 }
             }
         }
+
+        @media only screen and (max-width:1350px) {
+            width: -webkit-fill-available;
+            margin: 0 1rem;
+        }
+
+        @media only screen and (max-width:1050px) {
+            font-size: .9rem;
+        }
+
+        @media only screen and (max-width:860px) {
+            display: none;
+            margin: 0;
+        }
+    }
+
+    .mbl_nav_box {
+        padding: 0 2rem;
+        width: -webkit-fill-available;
+        display: flex;
+        height: 100px;
+        gap: 3rem;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.3rem;
+        color: white;
+        z-index: 5;
+        align-self: center;
+        background-color: white;
+
+        .logo {
+            width: 100px;
+
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .phone {
+            display: flex;
+            gap: .5rem;
+            justify-content: center;
+            align-items: center;
+            color: #6d6d6d;
+            font-size: medium;
+        }
+
+        @media only screen and (min-width:860px) {
+            display: none;
+        }
     }
 
     .title_box {
@@ -93,6 +146,16 @@
         .detail {
             font-size: 1.7rem;
             font-weight: 600;
+        }
+
+        @media only screen and (max-width:1050px) {
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .detail {
+                font-size: 1.4rem;
+            }
         }
     }
 }

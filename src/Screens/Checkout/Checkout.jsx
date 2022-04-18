@@ -70,15 +70,15 @@ const Checkout = () => {
                                             </span>
                                         </div>
 
-<div className="own_detail">
-    <p className="detail">Please enter the name, address, and postcode of the accommodation you’re arranging for your tour. If you have questions, please get in touch with rooms@rabbies.com</p>
-    <p className='doted'></p>
-    <div className="info">
-        <p> Accommodation information* </p>
-        <textarea name="info" id="info" cols="30" rows="10"></textarea>
-    <p className='doted'></p>
-    </div>
-</div>
+                                        <div className="own_detail">
+                                            <p className="detail">Please enter the name, address, and postcode of the accommodation you’re arranging for your tour. If you have questions, please get in touch with rooms@rabbies.com</p>
+                                            <p className='doted'></p>
+                                            <div className="info">
+                                                <p> Accommodation information* </p>
+                                                <textarea name="info" id="info" cols="30" rows="10"></textarea>
+                                                <p className='doted'></p>
+                                            </div>
+                                        </div>
 
                                     </div>
                                     <div className="break"></div>

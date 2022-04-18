@@ -17,14 +17,17 @@ import './Home.scss'
 const Home = () => {
     return (
         <>
+            <div className="mbl_booking">
+                <button> View Dates </button>
+            </div>
             <Header />
             <div className="home_container">
                 <div className="left_section">
                     <Slider />
                     <Map />
-                    <High/>
-                    <Journey/>
-                    <Reasons/>
+                    <High />
+                    <Journey />
+                    <Reasons />
                 </div>
                 <div className="right_section">
                     <Book />
@@ -32,7 +35,7 @@ const Home = () => {
             </div>
             <Partner />
             <Look />
-<Footer/>
+            <Footer />
             <Pay />
         </>
     )

@@ -3,10 +3,61 @@
     width: 1000px;
     margin: 0 auto;
     margin-top: -10rem;
-    // display: flex;
     display: grid;
     grid-template-columns: auto 300px;
     gap: 1rem;
     background-color: white;
     z-index: 10;
+
+    @media only screen and (max-width:1080px) {
+        width: -webkit-fill-available;
+        margin: 0 3rem;
+        margin-top: -10rem;
+        grid-template-columns: 2fr 1fr
+    }
+
+    @media only screen and (max-width:860px) {
+        display: block;
+
+        .right_section {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width:500px) {
+        margin: 0 1rem;
+        margin-top: -10rem;
+    }
+}
+
+.mbl_booking{
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 50;
+
+    button{
+        background-color: #03A87C;
+        border: 2px solid #03A87C;
+        border-radius: 20rem;
+        padding: .5rem;
+        font-size: 1.3rem;  
+        cursor: pointer;
+        color: white;
+        transition: all .3s;
+        width: 200px;
+
+        &:hover {
+            color: black;
+            background-color: white;
+        }
+        
+    }
+    @media only screen and (min-width:860px) {
+        display: none;
+    }
+
 }
