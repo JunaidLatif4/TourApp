@@ -61,3 +61,33 @@
     }
 
 }
+
+.mbl_booking_box{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .mbl_nav_box{
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #6d6d6d;
+
+        .logo{
+            width: 100px;
+            img{
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+        span{
+            font-size: 2rem;
+        }
+
+        .book_container{
+            width: -webkit-fill-available !important;
+            margin: 1rem 2rem;
+        }
+    }
+}

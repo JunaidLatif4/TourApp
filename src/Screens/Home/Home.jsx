@@ -1,8 +1,24 @@
 import React from 'react'
 import Footer from '../../Components/Footer/Footer'
 
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import ListItemText from '@mui/material/ListItemText';
+import ListItem from '@mui/material/ListItem';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+// import CloseIcon from '@mui/icons-material/Close';
+import { AiOutlineClose as CloseIcon } from "react-icons/ai"
+import Slide from '@mui/material/Slide';
+import { TransitionProps } from '@mui/material/transitions';
+
 import Header from '../../Components/Header/Header'
 import Book from './Components/BookForm/Book'
+import MobileBook from './Components/MobileBooking/MobileBooking'
 import High from './Components/High/High'
 import Journey from './Components/Journey/Journey'
 import Look from './Components/Look/Look'
@@ -12,13 +28,33 @@ import Pay from './Components/Pay/Pay'
 import Reasons from './Components/Reasons/Reasons'
 import Slider from './Components/Slider/Slider'
 
+import Logo from "../../Assets/logo.png"
+
 import './Home.scss'
 
+
+
+const Transition = React.forwardRef(function Transition(
+    props,
+    ref,
+) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
 const Home = () => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
     return (
         <>
             <div className="mbl_booking">
-                <button> View Dates </button>
+                <button onClick={handleClickOpen}> View Dates </button>
             </div>
             <Header />
             <div className="home_container">
@@ -37,6 +73,24 @@ const Home = () => {
             <Look />
             <Footer />
             <Pay />
+
+            <Dialog
+                fullScreen
+                open={open}
+                onClose={handleClose}
+                TransitionComponent={Transition}
+            >
+                <div className="mbl_booking_box">
+                    <div className="mbl_nav_box">
+                        <div className="logo">
+                            <img src={Logo} alt="Error" />
+                        </div>
+
+                        <span onClick={handleClose}> <CloseIcon/> </span>
+                    </div>
+                    <MobileBook />
+                </div>
+            </Dialog>
         </>
     )
 }
