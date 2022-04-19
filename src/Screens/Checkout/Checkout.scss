@@ -31,6 +31,16 @@
             align-items: center;
             gap: .5rem;
         }
+
+        @media only screen and(max-width:900px) {
+            width: -webkit-fill-available;
+            margin: 0 1rem;
+            font-size: .8rem;
+
+            img{
+                width: 80px;
+            }
+        }
     }
 
     .brack {
@@ -56,6 +66,11 @@
 
         }
 
+        @media only screen and(max-width:1040px) {
+            width: -webkit-fill-available;
+            margin: 0 1rem;
+        }
+
         .checkout_box {
             display: flex;
             flex-direction: column;
@@ -74,6 +89,11 @@
                 gap: 1rem;
                 margin-bottom: 2rem;
                 color: #6d6d6d;
+
+                @media only screen and(max-width:800px) {
+                    display: flex;
+                    flex-direction: column-reverse;
+                }
 
                 .accommodation {
                     display: flex;
