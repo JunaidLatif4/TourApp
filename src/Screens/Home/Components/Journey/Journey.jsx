@@ -104,13 +104,13 @@ const Journey = () => {
                               </div>
                     
                               <div className="question_box">
-                                  <p className="question">I want Rabbie’s to book my accommodation, what happens now?</p>
+                                  <p className="question">I want Craicin’s to book my accommodation, what happens now?</p>
                                   <p className="ans">Once you've booked your tour, we'll reserve all your accommodation, and your driver will drop you off with your hosts. You’ll pay your accommodation directly. Most don’t accept credit cards, so be prepared to pay cash.</p>
                               </div>
                     
                               <div className="question_box">
-                                  <p className="question">What if I want to change my accommodation booking with Rabbie’s?</p>
-                                  <p className="ans">Plans can change, so we let you alter your accommodation choices for free within the first 48 hours of booking. After this time, amendments aren't guaranteed and carry a surcharge. Please contact rooms@rabbies.com if you have any questions.</p>
+                                  <p className="question">What if I want to change my accommodation booking with Craicin’s?</p>
+                                  <p className="ans">Plans can change, so we let you alter your accommodation choices for free within the first 48 hours of booking. After this time, amendments aren't guaranteed and carry a surcharge. Please contact rooms@craicin.com if you have any questions.</p>
                               </div>
                     
                               <div className="question_box">
@@ -159,13 +159,13 @@ const Journey = () => {
                               </div>
                     
                               <div className="question_box">
-                                  <p className="question">I want Rabbie’s to book my accommodation, what happens now?</p>
+                                  <p className="question">I want Craicin’s to book my accommodation, what happens now?</p>
                                   <p className="ans">Once you've booked your tour, we'll reserve all your accommodation, and your driver will drop you off with your hosts. You’ll pay your accommodation directly. Most don’t accept credit cards, so be prepared to pay cash.</p>
                               </div>
                     
                               <div className="question_box">
-                                  <p className="question">What if I want to change my accommodation booking with Rabbie’s?</p>
-                                  <p className="ans">Plans can change, so we let you alter your accommodation choices for free within the first 48 hours of booking. After this time, amendments aren't guaranteed and carry a surcharge. Please contact rooms@rabbies.com if you have any questions.</p>
+                                  <p className="question">What if I want to change my accommodation booking with Craicin’s?</p>
+                                  <p className="ans">Plans can change, so we let you alter your accommodation choices for free within the first 48 hours of booking. After this time, amendments aren't guaranteed and carry a surcharge. Please contact rooms@craicin.com if you have any questions.</p>
                               </div>
                     
                               <div className="question_box">

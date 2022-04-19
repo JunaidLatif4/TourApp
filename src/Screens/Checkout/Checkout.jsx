@@ -59,7 +59,7 @@ const Checkout = () => {
                                         <div className="option">
                                             <input type="radio" name='accommodation' value={"client"} />
                                             <span>
-                                                I would like Rabbie's to book my accommodation.We'll reserve your room(s) with one of our preferred accommodation suppliers and you'll pay them directly when you check-in.
+                                                I would like Craicin's to book my accommodation.We'll reserve your room(s) with one of our preferred accommodation suppliers and you'll pay them directly when you check-in.
                                                 <br />
                                                 <br />
                                                 If it's important for you to know where you're going to be staying in advance, or if you want to stay in a specific Hotel/B&B, we recommend that you select the option below to book your own accommodation.
@@ -73,7 +73,7 @@ const Checkout = () => {
                                         </div>
 
                                         <div className="own_detail">
-                                            <p className="detail">Please enter the name, address, and postcode of the accommodation you’re arranging for your tour. If you have questions, please get in touch with rooms@rabbies.com</p>
+                                            <p className="detail">Please enter the name, address, and postcode of the accommodation you’re arranging for your tour. If you have questions, please get in touch with rooms@craicin.com</p>
                                             <p className='doted'></p>
                                             <div className="info">
                                                 <p> Accommodation information* </p>
