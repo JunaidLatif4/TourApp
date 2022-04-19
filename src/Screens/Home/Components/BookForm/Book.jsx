@@ -1,19 +1,25 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { GiPerson } from "react-icons/gi"
-import {BsTwitter} from "react-icons/bs"
-import {FaFacebookF} from "react-icons/fa"
-import {MdEmail} from "react-icons/md"
-import {AiOutlineWechat} from 'react-icons/ai'
+import { BsTwitter } from "react-icons/bs"
+import { FaFacebookF } from "react-icons/fa"
+import { MdEmail } from "react-icons/md"
+import { AiOutlineWechat } from 'react-icons/ai'
 
 import "./Book.scss"
 
 const Book = () => {
+    let history = useHistory()
+
+    const checkOut = () => {
+        history.push("/checkout")
+    }
     return (
         <>
             <div className="book_container">
                 <div className="title">
-                    Prices from £179.00
+                    <span> Prices from </span>£179.00
                 </div>
                 <div className="form">
                     <div className="line">
@@ -107,14 +113,14 @@ const Book = () => {
                             </div>
                         </div>
                     </div>
-                    <button> Book now </button>
+                    <button onClick={checkOut}> Book now </button>
                 </div>
                 <div className="break"></div>
                 <div className="social">
-                    <span> <BsTwitter/> </span>
-                    <span> <FaFacebookF/> </span>
-                    <span> <MdEmail/> </span>
-                    <span> <AiOutlineWechat/> </span>
+                    <span> <BsTwitter /> </span>
+                    <span> <FaFacebookF /> </span>
+                    <span> <MdEmail /> </span>
+                    <span> <AiOutlineWechat /> </span>
                 </div>
                 <div className="break"> </div>
             </div>

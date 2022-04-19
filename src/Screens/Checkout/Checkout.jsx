@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -17,6 +18,7 @@ import Img1 from "../../Assets/background.jpg"
 import "./Checkout.scss"
 
 const Checkout = () => {
+    let history = useHistory()
 
     const steps = [
         'Accommodation',
@@ -32,7 +34,7 @@ const Checkout = () => {
                 <div>
                     <div className="checkout_header">
                         <div className="secure"> <HiLockClosed /> Secure Checkout </div>
-                        <img src={Logo} alt="Error" />
+                        <img onClick={()=> history.push("/")} src={Logo} alt="Error" />
                         <div className="phone"> <BsFillTelephoneFill /> +44(0) 131 226 3133 </div>
                     </div>
                     <div className="brack"></div>

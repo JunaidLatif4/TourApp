@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
@@ -20,6 +21,7 @@ import BackImg from "../../Assets/background.jpg"
 import "./Header.scss"
 
 const Header = () => {
+    let history = useHistory()
 
     const [state, setState] = React.useState({
         top: false,
@@ -72,7 +74,7 @@ const Header = () => {
     return (
         <>
             <div className="header_container">
-                <div className="back_img"> <img src={BackImg} alt="Error" /> </div>
+                <div className="back_img" onClick={()=> history.push("/")}> <img src={BackImg} alt="Error" /> </div>
                 <div className="navbar_box">
                     <div className="logo">
                         <img src={Logo} alt="Error" />
@@ -93,7 +95,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="mbl_nav_box">
-                    <div className="logo">
+                    <div className="logo"  onClick={()=> history.push("/")}>
                         <img src={Logo} alt="Error" />
                     </div>
                     {/* <div>

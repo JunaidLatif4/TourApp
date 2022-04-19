@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { BsTwitter, BsPinterest } from "react-icons/bs"
 import { FaFacebookF } from "react-icons/fa"
@@ -6,11 +7,13 @@ import { MdLocationOn } from "react-icons/md"
 import { AiOutlineWechat } from 'react-icons/ai'
 import { ImInstagram, ImYoutube2 } from 'react-icons/im'
 
-import Logo from "../../Assets/logo.png"
+import Logo from "../../Assets/footer_logo.png"
 
 import "./Footer.scss"
 
 const Footer = () => {
+    let history = useHistory()
+
     return (
         <>
             <div className="footer_container">
@@ -37,7 +40,7 @@ const Footer = () => {
                         <BsPinterest />
                         <ImYoutube2 />
                     </div>
-                    <div className="logo">
+                    <div className="logo" onClick={() => history.push("/")}>
                         <img src={Logo} alt="Error" />
                     </div>
                 </div>
