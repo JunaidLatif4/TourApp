@@ -16,7 +16,7 @@ import { BsFillTelephoneFill } from "react-icons/bs"
 import { BiSearchAlt2 } from 'react-icons/bi'
 
 import Logo from "../../Assets/logo.png"
-import BackImg from "../../Assets/background.jpg"
+import BackImg from "../../Assets/uni.jpg"
 
 import "./Header.scss"
 
@@ -116,21 +116,11 @@ const Header = (props) => {
 
                 <div className="title_box">
                     {
-                        props.text ?
-                            <>
-                                <div className="title2">
-                                    {props.text}
-                                </div>
-                            </>
-                            :
-                            <>
-                                <div className="title">
-                                    The Isle of Skye
-                                </div>
-                                <div className="detail">
-                                    3 day tour
-                                </div>
-                            </>
+                        <>
+                            <div className="title2">
+                                {props.text}
+                            </div>
+                        </>
                     }
 
                 </div>

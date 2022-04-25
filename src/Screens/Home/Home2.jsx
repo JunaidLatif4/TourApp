@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Footer from '../../Components/Footer/Footer'
 
 import Button from '@mui/material/Button';
@@ -16,7 +17,7 @@ import { AiOutlineClose as CloseIcon } from "react-icons/ai"
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 
-import Header from '../../Components/Header/Header'
+import Header from '../../Components/Header/Header2'
 import Book from './Components/BookForm/Book'
 import MobileBook from './Components/MobileBooking/MobileBooking'
 import High from './Components/High/High'
@@ -31,10 +32,13 @@ import Slider from './Components/Slider/Slider'
 import Logo from "../../Assets/logo.png"
 
 import './Home.scss'
+import './Home2.scss'
 import Award from './Components/Award/Award';
 import Tour from './Components/Tour/Tour';
 import Dragon from './Components/Dragon/Dragon';
 import Insta from './Components/Insta/Insta';
+
+
 
 
 
@@ -44,8 +48,7 @@ const Transition = React.forwardRef(function Transition(
 ) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
-
-const Home = () => {
+const Home2 = () => {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -60,18 +63,12 @@ const Home = () => {
             <div className="mbl_booking">
                 <button onClick={handleClickOpen}> View Dates </button>
             </div>
-            <Header />
-            <div className="home_container">
-                <div className="left_section">
-                    <Slider />
-                    <Map />
-                    <High />
-                    <Journey />
-                    <Reasons />
-                </div>
-                <div className="right_section">
-                    <Book />
-                </div>
+            <Header text="Go beyond the guidebooks." />
+            <div className="home_container2">
+                <Award />
+                <Tour />
+                <Dragon />
+                <Insta />
             </div>
             <Partner />
             <Look />
@@ -95,12 +92,8 @@ const Home = () => {
                     <MobileBook />
                 </div>
             </Dialog>
-            {/* <Award/> */}
-            {/* <Tour/> */}
-            {/* <Dragon/> */}
-            {/* <Insta/> */}
         </>
     )
 }
 
-export default Home
+export default Home2

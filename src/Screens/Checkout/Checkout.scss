@@ -23,6 +23,7 @@
         img {
             width: 100px;
             object-fit: contain;
+            cursor: pointer;
         }
 
         .phoone {
@@ -61,7 +62,7 @@
             align-self: center;
 
             .Mui-completed {
-                color: green;
+                color: #6DAAA2;
             }
 
         }
@@ -151,8 +152,8 @@
                     margin: 2rem;
 
                     button {
-                        background-color: #03A87C;
-                        border: 2px solid #03A87C;
+                        background-color: #6DAAA2;
+                        border: 2px solid #6DAAA2;
                         border-radius: 20rem;
                         padding: .5rem 1rem;
                         font-size: 1.3rem;
@@ -193,7 +194,7 @@
 
                             }
                             a{
-                                color: #03A87C;
+                                color: #6DAAA2;
                             }
                         }
 
@@ -213,14 +214,14 @@
                                     font-size: 1.2rem;
                                 }
                                 span {
-                                    color: #03A87C;
+                                    color: #6DAAA2;
                                 }
                                
 
                                 input {
                                     width: -webkit-fill-available;
                                     color: inherit;
-                                    background-color: #DFDFDF;
+                                    background-color: #E7E7E7;
                                     padding: 10px 15px;
                                     border: none;
                                     box-sizing: border-box;
@@ -234,13 +235,13 @@
                                 padding: .2rem;
             
                                 .select {
-                                    background-color: #DFDFDF;
+                                    background-color: #E7E7E7;
                                     display: flex;
                                     padding: 1px;
                                     font-size: 1.5rem;
             
                                     .icon {
-                                        color: green;
+                                        color: #6DAAA2;
                                     }
             
                                     select {

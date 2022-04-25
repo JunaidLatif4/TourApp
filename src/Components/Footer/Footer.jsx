@@ -40,7 +40,7 @@ const Footer = () => {
                         <BsPinterest />
                         <ImYoutube2 />
                     </div>
-                    <div className="logo" onClick={() => history.push("/")}>
+                    <div style={{cursor:"pointer"}} className="logo" onClick={() => history.push("/")}>
                         <img src={Logo} alt="Error" />
                     </div>
                 </div>

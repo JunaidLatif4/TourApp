@@ -39,7 +39,8 @@
         align-self: center;
 
         .logo {
-            width: 100px;
+            width: 130px;
+            cursor: pointer;
 
             img {
                 width: 100%;
@@ -109,7 +110,8 @@
         background-color: white;
 
         .logo {
-            width: 100px;
+            width: 130px;
+            cursor: pointer;
 
             img {
                 width: 100%;
@@ -144,6 +146,11 @@
             font-size: 3rem;
             font-weight: 600;
         }
+        .title2 {
+            font-size: 3rem;
+            font-weight: 600;
+            text-align: center;
+        }
 
         .detail {
             font-size: 1.7rem;
@@ -152,6 +159,9 @@
 
         @media only screen and (max-width:1050px) {
             .title {
+                font-size: 2.5rem;
+            }
+            .title2 {
                 font-size: 2.5rem;
             }
 
