@@ -94,7 +94,7 @@ const Dragon = () => {
               </div>
 
               <div className="by">
-                by Rabbie
+                by Craicin
               </div>
 
             </div>
