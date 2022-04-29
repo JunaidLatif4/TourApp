@@ -11,7 +11,8 @@
     .title {
         font-size: 1.4rem;
         color: #6d6d6d;
-        span{
+
+        span {
             color: #77777777;
         }
     }
@@ -56,6 +57,15 @@
                             outline: none;
                             width: -webkit-fill-available;
                         }
+
+                        input {
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            width: -webkit-fill-available;
+                            margin: .2rem;
+                            font-size: large;
+                        }
                     }
                 }
             }
@@ -78,19 +88,19 @@
         }
     }
 
-    .break{
+    .break {
         height: 1px;
         background-color: RGB(232, 232, 232);
         line-height: 2px;
     }
 
-    .social{
+    .social {
         font-size: 1.5rem;
         display: flex;
         justify-content: space-evenly;
         color: #666666;
 
-        span{
+        span {
             cursor: pointer;
         }
     }

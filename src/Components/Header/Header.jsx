@@ -91,6 +91,7 @@ const Header = (props) => {
     return (
         <>
             <div className="header_container">
+                <div className="black_layer"></div>
                 <div className="back_img"> <img src={BackImg} alt="Error" /> </div>
                 <div className="navbar_box">
                     <div className="logo" onClick={() => history.push("/")}>

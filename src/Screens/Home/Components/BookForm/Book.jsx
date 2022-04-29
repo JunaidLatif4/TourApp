@@ -100,7 +100,8 @@ const Book = () => {
                             <div className="select_box">
                                 <div className="select">
                                     {/* <span className='icon'> <GiPerson /> </span> */}
-                                    <select style={{ padding: ".5rem .2rem" }} name="adults" id="adults">
+                                    <input type="date" />
+                                    {/* <select style={{ padding: ".5rem .2rem" }} name="adults" id="adults">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -108,7 +109,7 @@ const Book = () => {
                                         <option value="5">5</option>
                                         <option value="6">6</option>
                                         <option value="7">7</option>
-                                    </select>
+                                    </select> */}
                                 </div>
                             </div>
                         </div>
