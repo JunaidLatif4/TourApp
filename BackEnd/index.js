@@ -3,6 +3,8 @@ var cors = require("cors")
 var env = require("dotenv")
 const { default: mongoose } = require("mongoose")
 
+const TourRouter = require("./Routes/TourRoute")
+
 const app = express()
 
 app.use(express.json())
@@ -20,5 +22,7 @@ app.use('/hit' , async(req,res)=>{
         message:"Hited"
     })
 })
+
+app.use("/api/tour" , TourRouter)
 
 app.listen(90 , ()=> console.log("ServerStarted"))
