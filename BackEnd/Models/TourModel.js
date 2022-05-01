@@ -5,7 +5,7 @@ const tourSchema = mongoose.Schema({
         type: String
     },
     img: {
-        type: String
+        type: Object
     },
     s1Heading: {
         type: String
@@ -23,7 +23,7 @@ const tourSchema = mongoose.Schema({
         type: String
     },
     s3Box1Img: {
-        type: String
+        type: Object
     },
     s3Box2Heading: {
         type: String
@@ -32,7 +32,7 @@ const tourSchema = mongoose.Schema({
         type: String
     },
     s3Box2Img: {
-        type: String
+        type: Object
     },
     s3Box3Heading: {
         type: String
@@ -41,7 +41,7 @@ const tourSchema = mongoose.Schema({
         type: String
     },
     s3Box3Img: {
-        type: String
+        type: Object
     },
     s3Box4Heading: {
         type: String
@@ -50,7 +50,7 @@ const tourSchema = mongoose.Schema({
         type: String
     },
     s3Box4Img: {
-        type: String
+        type: Object
     },
 
 })

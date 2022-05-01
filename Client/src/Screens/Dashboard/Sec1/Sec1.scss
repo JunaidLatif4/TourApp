@@ -1,0 +1,181 @@
+.sec_main{
+    .sec_title{
+        font-size: 45px;
+        font-weight: 300 !important;
+      border-bottom: 2PX SOLID red;
+        letter-spacing: -1px;
+       width: 100px;
+       margin-left: 20px;
+      
+        color: #6d6d6d;
+        @media(max-width:600px){
+           font-size: 30px;
+        }
+    }
+
+
+
+
+
+
+.sec_main_title{
+    font-size: 45px;
+    font-weight: 300 !important;
+  
+    letter-spacing: -1px;
+   padding-left: 20px;
+  padding-top: 20px;
+  color: #6d6d6d;
+  @media(max-width:600px){
+      font-size: 30px;
+    }
+}
+
+
+.title_input{
+    padding-top: 20px;
+    padding-left: 20PX;
+    input{
+        padding-left: 20PX;
+        width: 400px;
+        height: 40px;
+        outline: none;
+        background-color: whitesmoke;
+    }
+
+}
+
+
+.upload{
+    width: 800px;
+    margin-left: 20px;
+    height: 500px;
+    border: #6d6d6d 1px dashed;
+    border-radius: 40px;
+    margin-top: 20PX;
+    position: relative !important;
+
+
+
+
+
+
+.ant-upload-list-item-image{
+    width: 800px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 40px;
+    
+}
+
+
+
+
+.ant-upload{
+    position: absolute;
+right: -120px;
+background-color: whitesmoke;
+width: 100px;
+height: 100px;
+font-size: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+    top: 50%;
+}
+
+.ant-upload-list-item-actions{
+    position: absolute;
+    right: -65px;
+    top: 57%;
+    display: flex;
+
+    gap: 1rem;
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+.hr_line{
+    hr{
+        width: 100%;
+        margin-top: 20px;
+        border-top: 2px solid green;
+    }
+}
+
+
+
+.sec_2{
+    .sec2_title{
+        font-size: 45px;
+        font-weight: 300 !important;
+      border-bottom: 2PX SOLID red;
+        letter-spacing: -1px;
+       width: 150px;
+       text-align: center;
+       margin-left: 20px;
+      
+        color: #6d6d6d;
+        @media(max-width:600px){
+           font-size: 30px;
+        }
+    }
+    
+
+
+
+.sec2_heading{
+    font-size: 45px;
+    font-weight: 300 !important;
+  
+    letter-spacing: -1px;
+   padding-left: 20px;
+  padding-top: 20px;
+  color: #6d6d6d;
+  @media(max-width:600px){
+      font-size: 30px;
+    }
+}
+
+.title_input{
+    padding-top: 20px;
+    padding-left: 20PX;
+    input{
+        padding-left: 20PX;
+        width: 400px;
+        height: 40px;
+        outline: none;
+        background-color: whitesmoke;
+    }
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+}

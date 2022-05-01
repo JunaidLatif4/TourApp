@@ -11,18 +11,18 @@ app.use(express.json())
 app.use(cors())
 env.config()
 
-mongoose.connect(process.env.MONGO_URL).then(()=>{
+mongoose.connect(process.env.MONGO_URL).then(() => {
     console.log("DataBase Connected");
-}).catch((err)=>{
-    console.log("DataBase Connection Fail ==== " , err);
+}).catch((err) => {
+    console.log("DataBase Connection Fail ==== ", err);
 })
 
-app.use('/hit' , async(req,res)=>{
+app.use('/hit', async (req, res) => {
     res.status(200).json({
-        message:"Hited"
+        message: "Hited"
     })
 })
 
-app.use("/api/tour" , TourRouter)
+app.use("/api/tour", TourRouter)
 
-app.listen(90 , ()=> console.log("ServerStarted"))
+app.listen(90, () => console.log("ServerStarted"))

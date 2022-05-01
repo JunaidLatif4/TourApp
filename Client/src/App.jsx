@@ -5,6 +5,7 @@ import Home from './Screens/Home/Home'
 import Checkout from './Screens/Checkout/Checkout';
 import Home2 from './Screens/Home/Home2';
 import ListPage from "./Screens/ListPage/ListPage"
+import Dashbaord from "./Screens/Dashboard/Stylistdashboard"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -17,6 +18,7 @@ const App = () => {
                 <Route exact path={"/list"} component={ListPage} />
                 <Route path={"/tour"} component={Home} />
                 <Route path={"/checkout"} component={Checkout} />
+                <Route path={"/dashboard"} component={Dashbaord} />
             </Switch>
         </>
     )

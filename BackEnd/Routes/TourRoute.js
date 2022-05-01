@@ -1,6 +1,7 @@
 const Router = require("express").Router()
 const mongoose = require("mongoose")
 const multer = require("multer")
+const { cloudinary, uploadCDN } = require("../Middleware/Cloudinary")
 
 const TourModel = require("../Models/TourModel")
 
@@ -58,21 +59,43 @@ Router.get("/", async (req, res) => {
     }
 })
 
-Router.post("/", upload.fields([{ name: "imgFile" }, { name: "s3Box1ImgFile" }, { name: "s3Box2ImgFile" }, { name: "s3Box3ImgFile" }, { name: "s3Box4ImgFile" }]), async (req, res) => {
+Router.post("/", upload.fields([{ name: "img" }, { name: "s3Box1Img" }, { name: "s3Box2Img" }, { name: "s3Box3Img" }, { name: "s3Box4Img" }]), async (req, res) => {
     const { id, state } = req.query
-    const { title, s1Heading, s1Details } = req.body
+    // const { title, s1Heading, s1Details } = req.body
 
     try {
-        console.log("BODY ========== " , req.body);
-        console.log(req.files);
-        // const tourData = await TourModel.create({
-        //     ...req.body,
-        //     img: "",
-        //     s3Box1Img: "",
-        //     s3Box2Img: "",
-        //     s3Box3Img: "",
-        //     s3Box4Img: "",
-        // })
+        let uploadFiles = {}
+
+        let processing = Object.keys(req.files).map(async (key, index) => {
+            let file = req.files[key]
+            if (file.length >= 1) {
+                let uploadRes = await uploadCDN(file[0].path, file[0].fieldName)
+                if (uploadRes.data != null) {
+                    uploadFiles = {
+                        ...uploadFiles,
+                        ...uploadRes.data
+                    }
+                } else {
+                    res.status(400).json(
+                        uploadRes.error
+                    )
+                }
+            }
+        })
+        await Promise.all(processing)
+        let savingData = {
+            ...req.body,
+            ...uploadFiles
+        }
+        
+        const tourData = await TourModel.create({
+            ...savingData
+        })
+        await tourData.save()
+        res.status(200).json({
+            message: "Toure Create Success",
+            data: tourData
+        })
     } catch (error) {
         console.log(error);
         res.status(500).json({
