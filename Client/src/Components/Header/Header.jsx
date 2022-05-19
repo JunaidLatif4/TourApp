@@ -25,11 +25,15 @@ import { FaMountain } from "react-icons/fa"
 import { WiNightAltCloudyHigh } from "react-icons/wi"
 import { AiOutlineClose } from "react-icons/ai"
 
+import { useSelector } from "react-redux"
+
 import "./Header.scss"
 
 const Header = (props) => {
     let history = useHistory()
 
+    let countryData = useSelector((state)=> state.countryData)
+console.log("-----------------------" , countryData);
     const [state, setState] = React.useState({
         top: false,
         left: false,

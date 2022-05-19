@@ -11,7 +11,7 @@ const upload = multer()
 
 
 Router.get("/", async (req, res) => {
-    const { id, state } = req.query
+    const { id, country } = req.query
 
     try {
         if (id) {
@@ -26,8 +26,8 @@ Router.get("/", async (req, res) => {
                     message: "Tour not Found"
                 })
             }
-        } else if (state) {
-            const tours = await TourModel.find({ state: state })
+        } else if (country) {
+            const tours = await TourModel.find({ country: country })
             if (tours) {
                 res.status(200).json({
                     message: "Tours Found Success",
@@ -59,8 +59,8 @@ Router.get("/", async (req, res) => {
     }
 })
 
-Router.post("/", upload.fields([{ name: "img" }, { name: "s3Box1Img" }, { name: "s3Box2Img" }, { name: "s3Box3Img" }, { name: "s3Box4Img" }]), async (req, res) => {
-    const { id, state } = req.query
+Router.post("/", upload.fields([{ name: "img" }, { name: "logo" }, { name: "s3Box1Img" }, { name: "s3Box2Img" }, { name: "s3Box3Img" }, { name: "s3Box4Img" }]), async (req, res) => {
+    const { id, country } = req.query
     // const { title, s1Heading, s1Details } = req.body
 
     try {
@@ -105,13 +105,13 @@ Router.post("/", upload.fields([{ name: "img" }, { name: "s3Box1Img" }, { name: 
     }
 })
 
-Router.put("/", upload.fields([{ name: "img" }, { name: "s3Box1Img" }, { name: "s3Box2Img" }, { name: "s3Box3Img" }, { name: "s3Box4Img" }]), async (req, res) => {
-    const { id, state } = req.query
+Router.put("/", upload.fields([{ name: "img" }, { name: "logo" }, { name: "s3Box1Img" }, { name: "s3Box2Img" }, { name: "s3Box3Img" }, { name: "s3Box4Img" }]), async (req, res) => {
+    const { id, country } = req.query
     // const { title, s1Heading, s1Details } = req.body
 
     try {
         if (id) {
-            if (req.files[img].length >= 1 || req.files[s3Box1Img].length >= 1 || req.files[s3Box2Img].length >= 1 || req.files[s3Box3Img].length >= 1 || req.files[s3Box4Img].length >= 1) {
+            if (req.files["img"].length >= 1 || req.files["logo"].length >= 1 || req.files["s3Box1Img"].length >= 1 || req.files["s3Box2Img"].length >= 1 || req.files["s3Box3Img"].length >= 1 || req.files["s3Box4Img"].length >= 1) {
                 let uploadFiles = {}
                 let processing = Object.keys(req.files).map(async (key, index) => {
                     let file = req.files[key]
@@ -147,7 +147,7 @@ Router.put("/", upload.fields([{ name: "img" }, { name: "s3Box1Img" }, { name: "
                     })
                 }
             } else {
-                let updateTour = await TourModel.findByIdAndUpdate(id, req.body)
+                let updateTour = await TourModel.findByIdAndUpdate(id, req.body, { new: true })
                 if (updateTour) {
                     res.status(200).json({
                         message: "Toure Update Success",
@@ -169,6 +169,36 @@ Router.put("/", upload.fields([{ name: "img" }, { name: "s3Box1Img" }, { name: "
         console.log(error);
         res.status(500).json({
             message: "Internal Server Error at Getting Tours",
+            error
+        })
+    }
+})
+
+Router.delete("/", async (req, res) => {
+    let { id } = req.query
+
+    try {
+        if (id) {
+            let deleteCountry = await CountryModel.findByIdAndDelete(id)
+            if (deleteCountry) {
+                res.status(200).json({
+                    message: "Tour Deleted Success",
+                    data: deleteCountry
+                })
+            } else {
+                res.status(404).json({
+                    message: "Tour not Found",
+                })
+            }
+        } else {
+            res.status(400).json({
+                message: "Requried Fields Missing",
+                fields: ["ID"]
+            })
+        }
+    } catch (error) {
+        res.status(500).json({
+            message: "Internal Server Error at Deleting Tour",
             error
         })
     }

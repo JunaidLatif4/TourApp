@@ -1,0 +1,120 @@
+.addtour_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem;
+    margin-bottom: 5rem;
+
+    .title {
+        display: flex;
+        align-items: center;
+        font-size: large;
+        gap: .5rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .tour_form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        .heading {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .brack {
+            height: 1px;
+            width: -webkit-fill-available;
+            background-color: black;
+        }
+
+        .btn {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: end;
+
+            button {
+                background-color: #6DAAA2;
+                border: 2px solid #6DAAA2;
+                // border-radius: 20rem;
+                padding: .5rem 1rem;
+                font-size: 1.3rem;
+                cursor: pointer;
+                color: white;
+                transition: all .3s;
+                min-width: 200px;
+
+                &:hover {
+                    color: black;
+                    background-color: white;
+                }
+            }
+        }
+
+        .line {
+            display: flex;
+            gap: .5rem;
+            width: -webkit-fill-available;
+
+            .input_box {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                width: -webkit-fill-available;
+
+                p {
+                    font-size: 1.2rem;
+                }
+
+                span {
+                    color: #6DAAA2;
+                }
+
+
+                input {
+                    width: -webkit-fill-available;
+                    color: inherit;
+                    background-color: #E7E7E7;
+                    padding: 10px 15px;
+                    border: none;
+                    box-sizing: border-box;
+                    padding: .8rem;
+                    font-size: large;
+                    // height: 45px;
+                }
+            }
+
+            .img_box {
+                width: 200px;
+                .img {
+                    width: 99%;
+                    // height: 500px;
+                    cursor: pointer;
+                    margin: 1rem 0;
+                    display: flex;
+                    justify-content: center;
+                    // padding: 1rem;
+                    border: 1px solid #aaa;
+
+                    img {
+                        width: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .input_boxes {
+                margin-top: 3rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: .5rem;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+}

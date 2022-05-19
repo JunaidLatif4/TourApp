@@ -3,7 +3,10 @@ var cors = require("cors")
 var env = require("dotenv")
 const { default: mongoose } = require("mongoose")
 
+const AuthRouter = require("./Routes/AuthRoute")
 const TourRouter = require("./Routes/TourRoute")
+const CountryRouter = require("./Routes/CountryRoute")
+const BookingRouter = require("./Routes/BookingRoute")
 
 const app = express()
 
@@ -23,6 +26,9 @@ app.use('/hit', async (req, res) => {
     })
 })
 
+app.use("/api/auth", AuthRouter)
 app.use("/api/tour", TourRouter)
+app.use("/api/country", CountryRouter)
+app.use("/api/booking", BookingRouter)
 
-app.listen(90, () => console.log("ServerStarted"))
+app.listen(process.env.PORT, () => console.log("ServerStarted"))

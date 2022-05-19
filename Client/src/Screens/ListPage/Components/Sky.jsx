@@ -1,5 +1,7 @@
 import React from 'react'
 
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+
 import bus from '../../../Assets/list1.jpeg'
 import port from '../../../Assets/list2.jpeg'
 import point from '../../../Assets/list3.jpeg'
@@ -11,122 +13,81 @@ import calnder from '../../../Assets/calnder.png'
 
 
 import './Sky.scss'
-const Sky = () => {
+
+
+const Sky = (props) => {
     return (
         <div className='main_sky'>
 
 
             <div className="bus_1">
-
-
-
                 <div className="bus">
-
                     <div className="bus_img">
-                        <img src={bus} />
+                        <img src={props.data.s3Box1Img.public} />
                     </div>
 
                     <div className="bus_title">
-                        The Winged Isle
+                        {props.data.s3Box1Heading}
                     </div>
 
-                    <div className="bus_para1">
-
-                        Skye’s unusual beauty attracts directors, poets, and geologists. Its unique rock types are carved into a landscape that’s as surreal as it is stunning.
+                    <div className="bus_para">
+                        {
+                            ReactHtmlParser(props.data.s3Box1Detail)
+                        }
                     </div>
-
-                    <div className="bus_para2">
-
-
-                        You’ll gaze at rocky outcrops, crescent shaped mountains, and physics-defying cliffs. And no matter why you visit, you’ll find this island mystical.
-
-
-                    </div>
-
                 </div>
 
                 <div className="bus">
-
                     <div className="bus_img">
-                        <img src={port} />
+                        <img src={props.data.s3Box2Img.public} />
                     </div>
-
-
-
-
 
                     <div className="bus_title">
-
-                        Neist Point
+                        {props.data.s3Box2Heading}
                     </div>
 
-                    <div className="bus_para1">
-                        The most epic lighthouse you could imagine. It clings to a jagged, winding headland, and shines bright in luminous white.
+                    <div className="bus_para">
+                        {
+                            ReactHtmlParser(props.data.s3Box2Detail)
+                        }
                     </div>
-
-                    <div className="bus_para2">
-                        The most epic lighthouse you could imagine. It clings to a jagged, winding headland, and shines bright in luminous white.
-
-                    </div>
-
                 </div>
-
-
 
             </div>
 
 
-
-
-
             <div className="bus_2">
 
-
-                <div className="bus">
-
+            <div className="bus">
                     <div className="bus_img">
-                        <img src={point} />
+                        <img src={props.data.s3Box3Img.public} />
                     </div>
 
                     <div className="bus_title">
-                        Portree
+                        {props.data.s3Box3Heading}
                     </div>
 
-                    <div className="bus_para1">
-
-                        he largest town in Skye has a population of 2,491 people. It’s famous for being a colourful, cultural centre for the people of Skye.
+                    <div className="bus_para">
+                        {
+                            ReactHtmlParser(props.data.s3Box3Detail)
+                        }
                     </div>
-
-                    <div className="bus_para2">
-
-
-                        You can find gifts for your family, you can splash out on fine dining, or you can spend your time watching the flows of the ocean.
-
-                    </div>
-
                 </div>
 
                 <div className="bus">
-
                     <div className="bus_img">
-                        <img src={bridge} />
+                        <img src={props.data.s3Box4Img.public} />
                     </div>
 
                     <div className="bus_title">
-                        Frolicking Fairies
+                        {props.data.s3Box4Heading}
                     </div>
 
-                    <div className="bus_para1">
-                        Skye is awash with folk tales of mischievous fairies. Dip your feet in the fairy pools and walk amongst the grassy knolls of the fairy glen.
-
+                    <div className="bus_para">
+                        {
+                            ReactHtmlParser(props.data.s3Box4Detail)
+                        }
                     </div>
-
-                    <div className="bus_para2">
-
-                        If you’re game, try visiting the little stream under Sligachan Bridge where the trickling water is rumoured to provide eternal beauty.
-
-                    </div>
-
                 </div>
 
 

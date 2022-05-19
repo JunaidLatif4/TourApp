@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
@@ -13,7 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 // import MailIcon from '@mui/icons-material/Mail';
 
 import { BsFillTelephoneFill } from "react-icons/bs"
-import { BiSearchAlt2 } from 'react-icons/bi'
+import { BiSearchAlt2, BiBus } from 'react-icons/bi'
 
 import Logo from "../../Assets/logo.png"
 import BackImg from "../../Assets/uni.jpg"
@@ -25,10 +25,16 @@ import { FaMountain } from "react-icons/fa"
 import { WiNightAltCloudyHigh } from "react-icons/wi"
 import { AiOutlineClose } from "react-icons/ai"
 
+import { useSelector } from "react-redux"
+
 import "./Header.scss"
 
 const Header = (props) => {
     let history = useHistory()
+
+    let countryData = useSelector((state) => state.countryData)
+    let tourData = useSelector((state) => state.tourData)
+    console.log("-----------------------", countryData);
 
     const [state, setState] = React.useState({
         top: false,
@@ -37,15 +43,41 @@ const Header = (props) => {
         right: false,
     });
 
-    const [selectedLink, setSelectedLink] = useState(null)
+    const [selectedLink, setSelectedLink] = useState({
+        id: null,
+        title: null
+    })
+    const [selectedTours, setSelectedTour] = useState(null)
 
-    const selectLink = (link) => {
-        setSelectedLink(link)
+    const selectLink = (title, id) => {
+        setSelectedLink({
+            id: id,
+            title: `Tour ${title}`
+        })
     }
     const removeLink = () => {
-        setSelectedLink(null)
+        setSelectedLink({
+            id: null,
+            title: null
+        })
     }
 
+    const goToTour = (value, view) => {
+        history.push({ pathname: "/list", state: { data: value, view } })
+        setSelectedLink({
+            id: null,
+            title: null
+        })
+    }
+
+    useEffect(() => {
+        if (selectedLink.id) {
+            let aa = tourData.filter((value) => value.country == selectedLink.id)
+            setSelectedTour(aa)
+            console.log("ppppppppp", aa);
+        }
+    }, [selectedLink])
+    console.log("rrrrrrrrrrrrrrrrrrrrrrrr", selectedTours);
     const toggleDrawer =
         (anchor, open) =>
             (event) => {
@@ -91,16 +123,30 @@ const Header = (props) => {
         <>
             <div className="header_container">
                 <div className="black_layer"></div>
-                <div className="back_img"> <img src={BackImg} alt="Error" /> </div>
+                <div className="back_img"> <img src={props.img ? props.img : BackImg} alt="Error" /> </div>
                 <div className="navbar_box">
                     <div className="logo" onClick={() => history.push("/")}>
                         <img src={Logo} alt="Error" />
                     </div>
                     <div className="links">
-                        <p style={{ color: selectedLink == "scotland" ? "black" : null }} onClick={() => selectLink("scotland")} > Tour Scotland </p>
-                        <p style={{ color: selectedLink == "england" ? "black" : null }} onClick={() => selectLink("england")} > Tour England </p>
-                        <p style={{ color: selectedLink == "ireland" ? "black" : null }} onClick={() => selectLink("ireland")} > Tour Ireland </p>
-                        <p style={{ color: selectedLink == "europ" ? "black" : null }} onClick={() => selectLink("europ")} > Tour Europe </p>
+                        {
+                            countryData != null ?
+                                countryData.map((data, index) => {
+                                    return (
+                                        <>
+                                            <p style={{ color: selectedLink.id == data._id ? "black" : null }} onClick={() => selectLink(data.title, data._id)} > Tour {data.title} </p>
+
+                                        </>
+                                    )
+                                })
+                                :
+                                <>
+                                    <p style={{ color: selectedLink == "scotland" ? "black" : null }} onClick={() => selectLink("scotland")} > Tour Scotland </p>
+                                    <p style={{ color: selectedLink == "england" ? "black" : null }} onClick={() => selectLink("england")} > Tour England </p>
+                                    <p style={{ color: selectedLink == "ireland" ? "black" : null }} onClick={() => selectLink("ireland")} > Tour Ireland </p>
+                                    <p style={{ color: selectedLink == "europ" ? "black" : null }} onClick={() => selectLink("europ")} > Tour Europe </p>
+                                </>
+                        }
                     </div>
                     <div className="about">
                         <p>Private Tours</p>
@@ -110,39 +156,48 @@ const Header = (props) => {
                             <span> <BsFillTelephoneFill /> </span>
                         </p>
                     </div>
+                    {
+                        selectedTours &&
 
-                    <div style={{ display: selectedLink == null ? "none" : null }} className="nav_popup">
-                        <p className="close" onClick={removeLink}>
-                            <AiOutlineClose />
-                        </p>
-                        <div className="title">
-                            <img src={BlackMap} alt="" /> Tour Scotland
-                        </div>
-                        <div className="boxes">
-
-                            <div className="left_box">
-                                <p onClick={() => history.push("/list")} >Tour Scotland + </p>
-                                <p onClick={() => history.push("/list")} >Tour Scotland + </p>
-                                <p onClick={() => history.push("/list")} >Tour Scotland + </p>
-                                <p onClick={() => history.push("/list")} >Tour Scotland + </p>
-                                <p onClick={() => history.push("/list")} >Tour Scotland + </p>
+                        <div style={{ display: selectedLink.id == null ? "none" : null }} className="nav_popup">
+                            <p className="close" onClick={removeLink}>
+                                <AiOutlineClose />
+                            </p>
+                            <div className="title">
+                                <img src={BlackMap} alt="" /> {selectedLink.title}
                             </div>
-                            <div className="right_box">
-                                <div className="heading">
-                                    I'd like to see
+                            <div className="boxes">
+
+                                <div className="left_box">
+                                    <p onClick={() => history.push("/tour")} >Tour Scotland + </p>
+                                    <p onClick={() => history.push("/tour")} >Tour Scotland + </p>
+                                    <p onClick={() => history.push("/tour")} >Tour Scotland + </p>
+                                    <p onClick={() => history.push("/tour")} >Tour Scotland + </p>
+                                    <p onClick={() => history.push("/tour")} >Tour Scotland + </p>
                                 </div>
-                                <div className="destinations">
-                                    <div className="list">
-                                        <div className="destination_box" onClick={() => history.push("/tour")}>
-                                            <p> <GiMountainRoad /> </p>
-                                            Isle of Skye
-                                        </div>
+                                <div className="right_box">
+                                    <div className="heading">
+                                        I'd like to see
+                                    </div>
+                                    <div className="destinations">
+                                        {
+                                            selectedTours.map((data) => {
+                                                return (
+                                                    <>
+                                                        {/* <div className="destination_box" onClick={() => history.push({ pathname: "/list", state: { data: data, view: "tour" } })}> */}
+                                                        <div className="destination_box" onClick={() => goToTour(data, "tour")}>
+                                                            <img src={data.logo.public} alt="ERROR" />
+                                                            {data.title}
+                                                        </div>
+                                                    </>
+                                                )
+                                            })
+                                        }
+                                        {/*                                         
                                         <div className="destination_box" onClick={() => history.push("/tour")}>
                                             <p> <ImVine /> </p>
                                             Whisky Tours
                                         </div>
-                                    </div>
-                                    <div className="list">
                                         <div className="destination_box" onClick={() => history.push("/tour")}>
                                             <p> <GiRattlesnake /> </p>
                                             Loch Ness
@@ -151,8 +206,6 @@ const Header = (props) => {
                                             <p> <FaMountain /> </p>
                                             Scottish Highlands
                                         </div>
-                                    </div>
-                                    <div className="list">
                                         <div className="destination_box" onClick={() => history.push("/tour")}>
                                             <p> <GiDoubleFish /> </p>
                                             Scottish Islands
@@ -160,13 +213,13 @@ const Header = (props) => {
                                         <div className="destination_box" onClick={() => history.push("/tour")}>
                                             <p> <WiNightAltCloudyHigh /> </p>
                                             Loch Lomond
-                                        </div>
+                                        </div> */}
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
+                    }
                 </div>
                 <div className="mbl_nav_box">
                     <div className="logo" onClick={() => history.push("/")}>
@@ -190,14 +243,47 @@ const Header = (props) => {
 
                 <div className="title_box">
                     {
-                        <>
-                            <div className="title2">
-                                {props.text}
-                            </div>
-                        </>
+                        props.detail ?
+                            <>
+                                <div className="title">
+                                    {props.text}
+                                </div>
+                                <div className="detail">
+                                    {props.detail}
+                                </div>
+                            </>
+                            :
+                            <>
+                                <div className="title2">
+                                    {
+                                        props.tour ?
+                                            <>
+                                                {props.text} Tours
+                                            </>
+                                            :
+                                            <>
+                                                {props.text}
+                                            </>
+                                    }
+                                </div>
+                            </>
                     }
 
                 </div>
+                {
+                    props.search &&
+                    <div className="search_box">
+                        <div className="heading">
+                            <BiBus /> Search our small group tours
+                        </div>
+                        <div className="input_box">
+                            <input type="text" placeholder='I want to experience...' />
+                            <div className="btn">
+                                <BiSearchAlt2 />
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </>
     )

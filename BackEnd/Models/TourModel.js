@@ -1,10 +1,17 @@
 const mongoose = require("mongoose");
 
 const tourSchema = mongoose.Schema({
+    country: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "CountryModel"
+    },
     title: {
         type: String
     },
     img: {
+        type: Object
+    },
+    logo: {
         type: Object
     },
     s1Heading: {

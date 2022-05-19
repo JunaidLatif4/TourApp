@@ -2,9 +2,9 @@
     border: 10px solid white;
     width: 1000px;
     margin: 0 auto;
-    margin-top: -10rem;
-    display: grid;
-    grid-template-columns: auto 350px;
+    margin-top: -3rem;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
     background-color: white;
     z-index: 10;
@@ -12,8 +12,8 @@
     @media only screen and (max-width:1080px) {
         width: -webkit-fill-available;
         margin: 0 3rem;
-        margin-top: -10rem;
-        grid-template-columns: 2fr 1fr
+        margin-top: -3rem;
+        // grid-template-columns: 2fr 1fr
     }
 
     @media only screen and (max-width:860px) {
@@ -26,68 +26,6 @@
 
     @media only screen and (max-width:500px) {
         margin: 0 1rem;
-        margin-top: -10rem;
-    }
-}
-
-.mbl_booking{
-    position: fixed;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    z-index: 50;
-
-    button{
-        background-color: #6DAAA2;
-        border: 2px solid #6DAAA2;
-        border-radius: 20rem;
-        padding: .5rem;
-        font-size: 1.3rem;  
-        cursor: pointer;
-        color: white;
-        transition: all .3s;
-        width: 200px;
-
-        &:hover {
-            color: black;
-            background-color: white;
-        }
-        
-    }
-    @media only screen and (min-width:860px) {
-        display: none;
-    }
-
-}
-
-.mbl_booking_box{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-    .mbl_nav_box{
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #6d6d6d;
-
-        .logo{
-            width: 100px;
-            img{
-                width: 100%;
-                object-fit: contain;
-            }
-        }
-        span{
-            font-size: 2rem;
-        }
-
-        .book_container{
-            width: -webkit-fill-available !important;
-            margin: 1rem 2rem;
-        }
+        margin-top: -3rem;
     }
 }

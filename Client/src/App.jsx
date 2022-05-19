@@ -1,24 +1,88 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Switch, Route } from "react-router-dom"
 
 import Home from './Screens/Home/Home'
 import Checkout from './Screens/Checkout/Checkout';
-import Home2 from './Screens/Home/Home2';
+import TourDetails from './Screens/TourDetails/TourDetails';
 import ListPage from "./Screens/ListPage/ListPage"
-import Dashbaord from "./Screens/Dashboard/Stylistdashboard"
+import Dashbaord from "./Screens/Dashboard/Dashboard"
+import Login from './Screens/Dashboard/Login/Login'
+
+import { ToastContainer, toast } from 'react-toastify';
+import { getCountriesAPI } from './API/country';
+import { getToursAPI } from './API/Tour';
+import { useDispatch } from "react-redux"
+import { addCountryData } from "./GlobalStore/actions/addCountry"
+import { addTourData } from "./GlobalStore/actions/addTour"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const App = () => {
+    let dispatch = useDispatch()
+
+    const gettingCountries = async () => {
+        let res = await getCountriesAPI()
+        if (res.error != null) {
+            toast.error(res.error.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark"
+            });
+        } else {
+            localStorage.setItem("CountryData", JSON.stringify(res.data.data))
+            dispatch(addCountryData(res.data.data))
+        }
+    }
+    const gettingTours = async () => {
+        let res = await getToursAPI()
+        if (res.error != null) {
+            toast.error(res.error.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark"
+            });
+        } else {
+            localStorage.setItem("TourData", JSON.stringify(res.data.data))
+            dispatch(addTourData(res.data.data))
+        }
+    }
+    useEffect(() => {
+        gettingCountries()
+        gettingTours()
+    })
+
     return (
         <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <Switch>
-                <Route exact path={"/"} component={Home2} />
-                <Route exact path={"/list"} component={ListPage} />
-                <Route path={"/tour"} component={Home} />
+                <Route exact path={"/"} component={Home} />
+                <Route path={"/list"} component={ListPage} />
+                <Route path={"/tour"} component={TourDetails} />
                 <Route path={"/checkout"} component={Checkout} />
                 <Route path={"/dashboard"} component={Dashbaord} />
+                <Route path={"/login"} component={Login} />
             </Switch>
         </>
     )

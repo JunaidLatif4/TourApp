@@ -1,0 +1,90 @@
+.dashboardlogin_container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form_box {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        // align-items: center;
+        .title {
+            border: 3px solid #E7E7E7;
+            font-size: 2rem;
+            text-align: center;
+            color: #6DAAA2;
+            display: flex;
+            width: min-content;
+            align-self: center;
+            padding: 1rem;
+            border-radius: 50rem;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            // border: 2px solid #6DAAA2;
+            padding: 2rem 1rem;
+
+
+            .input_box {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                width: -webkit-fill-available;
+
+                p {
+                    font-size: 1rem;
+                }
+
+                span {
+                    color: #6DAAA2;
+                }
+
+
+                input {
+                    width: -webkit-fill-available;
+                    color: inherit;
+                    // background-color: #E7E7E7;
+                    border: 2px solid #E7E7E7;
+                    padding: 10px 15px;
+                    // border: none;
+                    box-sizing: border-box;
+                    padding: .8rem;
+                    font-size: large;
+                    outline: none;
+                    border-radius: .2rem;
+                }
+            }
+
+            .btn {
+                // margin-top: 2rem;
+                display: flex;
+                width: -webkit-fill-available;
+
+                button {
+                    width: 100%;
+                    background-color: #6DAAA2;
+                    border: 2px solid #6DAAA2;
+                    // border-radius: 20rem;
+                    padding: .5rem 1rem;
+                    font-size: 1.3rem;
+                    cursor: pointer;
+                    color: white;
+                    transition: all .3s;
+                    border-radius: .2rem;
+                    // min-width: 200px;
+
+                    &:hover {
+                        color: black;
+                        background-color: white;
+                    }
+                }
+            }
+        }
+    }
+}
