@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Car from "../../../../Assets/car.png"
-import Badge from "../../../../Assets/badge.png"
-import Calender from "../../../../Assets/calender.png"
-import Wave from "../../../../Assets/wave.png"
+import Car from "../../../../Assets/van.png"
+import Badge from "../../../../Assets/guaranteed.png"
+import Calender from "../../../../Assets/calendar.png"
+import Wave from "../../../../Assets/ecology.png"
 
 import "./Reasons.scss"
 

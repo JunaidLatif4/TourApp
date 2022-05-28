@@ -64,9 +64,13 @@
             }
 
             .van {
-                width: 253px;
+                width: 200px;
                 height: 140px;
                 text-align: center;
+
+                img {
+                    width: 25%;
+                }
 
                 @media(max-width:1070px) {
                     width: 100%;
@@ -92,7 +96,7 @@
             align-items: center;
 
             hr {
-                border-top: 2px solid #03A87C !important;
+                border-top: 2px solid #6DAAA2 !important;
                 width: 10%;
                 margin-top: 20px;
                 margin-bottom: 20px;

@@ -34,7 +34,7 @@ const Home2 = () => {
                 <Land data={currentData} />
                 <Sky data={currentData} />
             </div>
-            <Partner />
+            {/* <Partner /> */}
             <Look />
             <Footer />
             <Pay />

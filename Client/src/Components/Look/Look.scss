@@ -1,99 +1,59 @@
-.l_main {
-    background-color: #6DAAA2;
+.newsletter_container {
     width: -webkit-fill-available;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    padding: 5rem 1rem;
+    position: relative;
 
-    .look_img img {
-        width: 497px;
-    }
+    .back_img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
 
-    @media only screen and (max-width:950px) {
-        flex-direction: column;
-        gap: 2rem;
-        padding: 2rem 1rem;
-        align-items: unset;
-
-        .l_line {
-            display: none;
-        }
-
-        .look_img {
-            width: -webkit-fill-available;
-
-            img {
-                width: -webkit-fill-available;
-            }
+        img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
         }
     }
 
-
-
-    .l_line {
-        height: 300px;
-        border: 1px white solid;
-    }
-
-    .l_text {
-
+    .newsletter_box {
         display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
-        align-items: flex-start;
         gap: 1rem;
+        padding: 10rem 0;
 
-        .l_title {
-            font-family: 'Open Sans', sans-serif;
-            font-size: 44px;
-            color: #FFF;
-            padding-left: 30px;
-            padding-right: 30px;
-            margin: 0 0 10px;
-            font-weight: 400;
-
-
-        }
-
-        .l_para {
-            font-size: 20px;
-            color: #FFF;
-            padding-left: 30px;
-            line-height: 30px;
-            padding-right: 30px;
-            font-weight: 400;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-
-
-        .l_btn button {
-            background-color: #d970ab;
-            margin-left: 30px;
-            border: #d970ab;
-            margin: 20px 25px;
-            display: inline-block;
-            text-decoration: none;
-            color: #fff;
-            border-radius: 20px;
-            font-family: 'Open Sans', sans-serif, 'Open Sans', sans-serif;
-            padding: 0.3125em 1.25em;
-            font-size: 1.125em;
+        .title {
+            color: white;
+            font-size: 2rem;
             text-align: center;
+
         }
 
-        @media only screen and (max-width:1200px) {
+        .subscribe {
+            display: flex;
+            gap: .5rem;
 
-            // flex-direction: column;
-            .l_title {
-                font-size: 1.8rem;
+            input {
+                background-color: rgba(255, 255, 255, 0.107);
+                border: none;
+                outline: none;
+                padding: .7rem .5rem;
+                font-size: large;
+                border-radius: .3rem;
+                width: 250px;
+                color: white;
             }
 
-            .l_para {
-                font-size: 1.1rem;
+            button {
+                background-color: #6DAAA2;
+                padding: .5rem 1rem;
+                border: none;
+                border-radius: .3rem;
+                cursor: pointer;
             }
         }
-
     }
 }

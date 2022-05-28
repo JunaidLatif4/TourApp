@@ -48,6 +48,55 @@
         }
     }
 
+    .tour_box {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+        width: -webkit-fill-available;
+
+        .img_box {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: .3rem;
+            overflow: hidden;
+
+            .leyr {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: -webkit-fill-available;
+                z-index: 1;
+                background-color: black;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    opacity: .75;
+                }
+            }
+
+            .title {
+                padding: 5rem 0;
+                z-index: 5;
+                color: white;
+                font-size: 1.8rem;
+            }
+
+            &:hover {
+                .leyr {
+                    img {
+                        opacity: .6;
+                    }
+                }
+            }
+        }
+    }
 
     .line1 {
         width: 1035px;
@@ -83,6 +132,7 @@
                 width: 328px;
                 height: 211px;
                 transition: .5s;
+                object-fit: cover;
 
                 @media(max-width:1200px) {
                     width: 268px;
@@ -142,6 +192,7 @@
             img {
                 width: 328px;
                 height: 211px;
+                object-fit: cover;
 
                 @media(max-width:1200px) {
                     width: 268px;
@@ -186,6 +237,7 @@
             justify-content: center;
             align-items: center;
             gap: 0.5rem;
+            object-fit: cover;
 
             @media(max-width:1035px) {
                 width: 100%;
@@ -234,11 +286,11 @@
     .btn_explore {
         margin: 20px 0;
         display: inline-block;
-        background-color: #03A87C;
+        background-color: #6DAAA2;
         padding: 0.3125em 1.25em;
         font-size: 1.125em;
         text-align: center;
-        border: 2px solid #03A87C;
+        border: 2px solid #6DAAA2;
         -webkit-transition: all .2s ease-in;
         -o-transition: all .2s ease-in;
         transition: all .2s ease-in;
@@ -266,7 +318,7 @@
         align-items: center;
 
         hr {
-            border-top: 2px solid #03A87C !important;
+            border-top: 2px solid #6DAAA2 !important;
             width: 17%;
             margin-top: 20px;
             margin-bottom: 20px;

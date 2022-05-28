@@ -52,14 +52,14 @@ const Home2 = () => {
     };
     return (
         <>
-            <Header text="Go beyond the guidebooks." search={true} />
+            <Header text="Find Your Escape." search={true} />
             <div className="home_container">
                 <Award />
                 <Tour />
                 <Dragon />
                 <Insta />
             </div>
-            <Partner />
+            {/* <Partner /> */}
             <Look />
             <Footer />
             <Pay />

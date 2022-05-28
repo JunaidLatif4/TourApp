@@ -35,7 +35,7 @@ const Tour = () => {
                 Where would you like to go?
             </div>
 
-            <div className="line1">
+            {/* <div className="line1">
 
                 {
                     countryData != null ?
@@ -53,39 +53,30 @@ const Tour = () => {
                 }
 
 
-            </div>
+            </div> */}
 
-
-            <div className="line2">
+            <div className="tour_box">
                 {
                     countryData != null ?
-                        <>
-                            <div className="img2">
-                                <img style={{ cursor: "pointer" }} onClick={() => goToCountry(countryData[2], "country")} src={countryData[2].img.public} />
-                                <img style={{ cursor: "pointer" }} onClick={() => goToCountry(countryData[3], "country")} src={countryData[3].img.public} />
-                                <img src={pic5} />
-                            </div>
-                        </>
+                        countryData.map((data, index) => {
+                            return (
+                                index <= 6 &&
+                                <>
+                                    <div className="img_box" onClick={() => goToCountry(data, "country")}>
+                                        <div className="title">Tour {data.title}</div>
+                                        <div className="leyr">
+                                            <img src={data.img.public} alt="" />
+                                        </div>
+                                    </div>
+                                </>
+                            )
+                        })
                         :
-                        <div className="img2">
-                            <img src={pic3} />
-                            <img src={pic4} />
-                            <img src={pic5} />
+                        <div className="no">
+                            No Tours Found
                         </div>
                 }
             </div>
-
-
-            <div className="line3">
-                <div className="img3">
-                    <img src={pic6} />
-                    <img src={pic7} />
-                    <img src={pic8} />
-                </div>
-            </div>
-
-
-
 
             <div className="btn_explore">
                 Explore all our tours

@@ -107,7 +107,7 @@
                 top: 20px;
 
                 font-weight: bold;
-                color: #03A87C;
+                color: #6DAAA2;
                 cursor: pointer;
             }
 
@@ -135,7 +135,7 @@
                     gap: .5rem;
 
                     p {
-                        color: #03A87C;
+                        color: #6DAAA2;
                         font-size: large;
                         cursor: pointer;
 
@@ -335,13 +335,13 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: #03A87C;
+                background-color: #6DAAA2;
                 color: white;
                 padding: .5rem 2rem;
                 font-size: 1.4rem;
                 cursor: pointer;
                 box-sizing: border-box;
-                border: 2px solid #03A87C;
+                border: 2px solid #6DAAA2;
 
                 &:hover {
                     background-color: white;

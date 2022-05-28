@@ -29,6 +29,7 @@ import Reasons from './Components/Reasons/Reasons'
 import Slider from './Components/Slider/Slider'
 
 import Logo from "../../Assets/logo.png"
+import DetailImg from "../../Assets/detail_img.jpg"
 
 import './TourDetails.scss'
 
@@ -57,7 +58,7 @@ const TourDetails = () => {
             <div className="mbl_booking">
                 <button onClick={handleClickOpen}> View Dates </button>
             </div>
-            <Header text="The Isle of Skye" detail="3 day tour" />
+            <Header text="The Isle of Skye" detail="3 day tour" img={DetailImg} />
             <div className="tourdetails_container">
                 <div className="left_section">
                     <Slider />
@@ -70,7 +71,7 @@ const TourDetails = () => {
                     <Book />
                 </div>
             </div>
-            <Partner />
+            {/* <Partner /> */}
             <Look />
             <Footer />
             <Pay />

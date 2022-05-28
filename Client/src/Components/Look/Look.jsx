@@ -1,27 +1,25 @@
 import React from 'react'
+
+import newsBack from '../../Assets/news_img.jpg'
+
 import './Look.scss'
-import look from '../../Assets/look_img.jpg'
+
+
 
 const Look = () => {
   return (
-    <div className='l_main'>
-
-      <div className="look_img">
-        <img src={look} />
+    <div className="newsletter_container">
+      <div className="back_img">
+        <img src={newsBack} alt="" />
       </div>
 
-      <div className="l_line">
-      </div>
-      
-      <div className="l_text">
-        <div className="l_title">
-          Looking for inspiration?
+      <div className="newsletter_box">
+        <div className="title">
+          Stay up to date <br /> with our newsletter.
         </div>
-        <div className="l_para">
-          Subscribe to our emails for tips and updates about our <br /> friendly tours across the UK & Europe.
-        </div>
-        <div className="l_btn">
-          <button> Yes, inspire me </button>
+        <div className="subscribe">
+          <input type="text" placeholder='Enter Email' />
+          <button>subscribe</button>
         </div>
       </div>
 

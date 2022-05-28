@@ -22,6 +22,7 @@ const EditTour = (props) => {
     const hidenInput2 = useRef(null)
     const hidenInput3 = useRef(null)
     const hidenInput4 = useRef(null)
+    const hidenInput5 = useRef(null)
 
     const [enteredData, setEnteredData] = useState(null)
 
@@ -89,6 +90,9 @@ const EditTour = (props) => {
         else if (value == "4") {
             hidenInput4.current.click()
         }
+        else if (value == "5") {
+            hidenInput5.current.click()
+        }
     }
     const uploadingImg = (event, name) => {
         setEnteredData((preValue) => {
@@ -146,6 +150,15 @@ const EditTour = (props) => {
                                             <div className="img" onClick={() => addImg("0")}>
                                                 <img src={!enteredData.img ? AddImg : enteredData.img.public} alt="ERROR" />
                                                 <input ref={hidenInput} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "img")} style={{ display: "none" }} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="img_box">
+                                        <div className="img_box">
+                                            <p> Upload Logo </p>
+                                            <div className="img" onClick={() => addImg("5")}>
+                                                <img src={!enteredData.logo ? AddImg : enteredData.logo.public} alt="ERROR" />
+                                                <input ref={hidenInput5} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "logo")} style={{ display: "none" }} />
                                             </div>
                                         </div>
                                     </div>
