@@ -11,8 +11,11 @@ import reward from '../../../Assets/reward.png'
 import leaf from '../../../Assets/leaf.png'
 import calnder from '../../../Assets/calnder.png'
 
+import Card from "../../Search/Components/Card"
+
 
 import './Sky.scss'
+import Award from '../../Home/Components/Award/Award';
 
 
 const Sky = (props) => {
@@ -58,7 +61,7 @@ const Sky = (props) => {
 
             <div className="bus_2">
 
-            <div className="bus">
+                <div className="bus">
                     <div className="bus_img">
                         <img src={props.data.s3Box3Img.public} />
                     </div>
@@ -100,85 +103,9 @@ const Sky = (props) => {
                 <hr />
             </div>
 
-
             <div className="ex">
 
-
-                <div className="ex_title">
-                    The Craicin's experience
-                </div>
-
-
-                <div className="bus_line">
-
-                    <div className="bus_line1">
-
-                        <div className="van">
-                            <img src={van} />
-                        </div>
-
-
-
-                        <div className="bus_para">
-                            Travel the local way on small group tours of 16 people or less
-                        </div>
-
-
-                    </div>
-
-
-
-
-
-
-                    <div className="bus_line1">
-
-                        <div className="van">
-                            <img src={reward} />
-                        </div>
-
-
-
-                        <div className="bus_para">
-                            You'll have a guaranteed experience or your money back
-                        </div>
-
-
-                    </div>
-                    <div className="bus_line1">
-
-                        <div className="van">
-                            <img src={calnder} />
-                        </div>
-
-
-
-                        <div className="bus_para">
-                            Guaranteed departures: you book, you go
-                        </div>
-
-
-                    </div>
-                    <div className="bus_line1">
-
-                        <div className="van">
-                            <img src={leaf} />
-                        </div>
-
-
-
-                        <div className="bus_para">
-                            Our eco-friendly tours support local communities
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-
-
+                <Award title="The Craicin's experience" details={false} />
 
                 <div className="our">
                     <span className='skye'>Our Skye Tours</span>
@@ -186,17 +113,13 @@ const Sky = (props) => {
                     <div className="under_line">
 
                     </div>
+
                 </div>
 
 
 
-
-
-
-
+                <Card />
             </div>
-
-
 
 
 

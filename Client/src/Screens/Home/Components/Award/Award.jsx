@@ -5,7 +5,7 @@ import calender from '../../../../Assets/calendar.png'
 import reward from '../../../../Assets/guaranteed.png'
 import leaf from '../../../../Assets/ecology.png'
 
-const Award = () => {
+const Award = (props) => {
     return (
 
         <div className="main_award">
@@ -18,7 +18,7 @@ const Award = () => {
 
 
                 <div className="award_title">
-                    PREMIUM TRAVELS
+                    {props.title ? props.title : "PREMIUM TRAVELS"}
                 </div>
 
                 <div className="award_icon">
@@ -88,29 +88,21 @@ const Award = () => {
 
 
             </div>
+            {
+                props.details != false &&
+                <div className="main_award_2">
+                    <div className="para1">
+                        Get your suitcases, cameras, and thermos flasks ready, because it’s time to combine little-known legends with classic destinations on our friendly mini-coach tours of the UK & Europe.
+                    </div>
+                    <div className="para1">
+                        Each trip comes with a driver-guide who knows the stories, sights, and secrets of the areas you travel through; every itinerary is tested by travel-loving locals; and you get the chance to support the communities you visit.
+                    </div>
 
-            <div className="main_award_2">
-
-                <div className="para1">
-                    Get your suitcases, cameras, and thermos flasks ready, because it’s time to combine little-known legends with classic destinations on our friendly mini-coach tours of the UK & Europe.
+                    <div className="para1">
+                        So, what are you waiting for? Get planning, get packing, and go beyond the guidebooks.
+                    </div>
                 </div>
-
-
-                <div className="para1">
-                    Each trip comes with a driver-guide who knows the stories, sights, and secrets of the areas you travel through; every itinerary is tested by travel-loving locals; and you get the chance to support the communities you visit.
-                </div>
-
-                <div className="para1">
-                    So, what are you waiting for? Get planning, get packing, and go beyond the guidebooks.
-                </div>
-
-
-
-
-
-
-
-            </div>
+            }
 
         </div>
     )

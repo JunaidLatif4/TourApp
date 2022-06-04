@@ -668,7 +668,7 @@ const Header = (props) => {
                         </div>
                         <div className="input_box">
                             <input type="text" placeholder='I want to experience...' />
-                            <div className="btn">
+                            <div className="btn" onClick={()=> history.push("/search")}>
                                 <BiSearchAlt2 />
                             </div>
                         </div>

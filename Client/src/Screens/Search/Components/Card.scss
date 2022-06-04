@@ -1,0 +1,171 @@
+.cards_container{
+    display: grid;
+    grid-template-columns: 250px auto;
+    gap: 1rem;
+
+    .options {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .brack {
+            width: -webkit-fill-available;
+            height: 1px;
+            background-color: rgb(180, 180, 180);
+        }
+
+        .search_input {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            input {
+                font-size: large;
+                padding: .7rem .5rem;
+            }
+
+            button {
+                padding: .7rem .5rem;
+                width: 60%;
+                font-size: large;
+                color: white;
+                background-color: #6DAAA2;
+                border: none;
+                cursor: pointer;
+                border-radius: .3rem;
+
+            }
+        }
+
+        .departure {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            p {
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+
+            input {
+                font-size: large;
+                padding: .7rem .5rem;
+            }
+        }
+
+        .destination {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            p {
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+
+            .locations {
+                padding: .2rem;
+
+                .location {
+                    display: flex;
+                    gap: .5rem;
+                    align-items: center;
+                    cursor: pointer;
+
+                    input {
+                        font-size: large
+                    }
+
+                    ;
+
+                    div {
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+    .cards_box {
+        width: -webkit-fill-available;
+        
+        gap: 1rem;
+        .card {
+            display: grid;
+            grid-template-columns: 250px auto 150px;
+            gap: .5rem;
+
+            .img_box {
+                width: -wekit-fill-available;
+                height: 200px;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .price {
+                    position: absolute;
+                    bottom: 35px;
+                    height: 35px;
+                    left: 0;
+                    right: 0;
+                    background-color: RGB(224, 224, 224);
+                    width: -webkit-fill-available;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: .8rem;
+
+                    span {
+                        font-size: medium;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .details{
+                display: flex;
+                gap: .5rem;
+                flex-direction: column;
+
+                font-size: .9rem;
+                color: #6d6d6d;
+
+                .title{
+                    font-size: medium;
+                    font-weight: bold;
+                }
+                span{
+                    font-size: medium;
+                }
+
+            }
+
+            .find{
+                display: flex;
+                flex-direction: column;
+                gap: .4rem;
+                font-size: .8rem;
+
+                span{
+                    color: #6DAAA2;
+                }
+
+                button{
+                    margin-top: .5rem;
+                    padding: .7rem .5rem;
+                    font-size: large;
+                    color: white;
+                    background-color: #6DAAA2;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 50rem;
+                }
+            }
+        }
+    }
+}

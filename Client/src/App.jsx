@@ -17,6 +17,7 @@ import { addTourData } from "./GlobalStore/actions/addTour"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import 'react-toastify/dist/ReactToastify.css';
+import Search from './Screens/Search/Search';
 
 
 const App = () => {
@@ -79,6 +80,7 @@ const App = () => {
             <Switch>
                 <Route exact path={"/"} component={Home} />
                 <Route path={"/list"} component={ListPage} />
+                <Route path={"/search"} component={Search} />
                 <Route path={"/tour"} component={TourDetails} />
                 <Route path={"/checkout"} component={Checkout} />
                 <Route path={"/dashboard"} component={Dashbaord} />
