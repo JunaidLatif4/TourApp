@@ -16,7 +16,7 @@ import { AiOutlineClose as CloseIcon } from "react-icons/ai"
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 
-import Header from '../../Components/Header/Header2'
+import Header from '../../Components/Header/Header'
 import Book from './Components/BookForm/Book'
 import MobileBook from './Components/MobileBooking/MobileBooking'
 import High from './Components/High/High'
@@ -65,7 +65,7 @@ const TourDetails = () => {
                     <Map />
                     <High />
                     <Journey />
-                    <Reasons />
+                    <Reasons details={false} />
                 </div>
                 <div className="right_section">
                     <Book />
@@ -74,7 +74,7 @@ const TourDetails = () => {
             {/* <Partner /> */}
             <Look />
             <Footer />
-            <Pay />
+            {/* <Pay /> */}
 
             <Dialog
                 fullScreen

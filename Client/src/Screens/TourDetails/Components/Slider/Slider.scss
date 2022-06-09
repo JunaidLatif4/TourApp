@@ -1,5 +1,31 @@
-.slider_container{
-    .detail{
+.slider_container {
+    position: relative;
+    background-color: transparent;
+    // width: 1000px;
+    padding: 4rem 0;
+
+    .backcol {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 100vw;
+        background-color: #E4EFEE;
+        z-index: -1;
+    }
+    .backcol2 {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100vw;
+        background-color: #E4EFEE;
+        z-index: -1;
+
+    }
+
+    .detail {
         margin: 1.3rem 0;
         color: #6d6d6d;
         font-size: 1.4rem;

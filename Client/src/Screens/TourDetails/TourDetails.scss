@@ -1,12 +1,12 @@
 .tourdetails_container {
-    border: 10px solid white;
+    // border: 10px solid white;
     width: 1000px;
     margin: 0 auto;
-    margin-top: -10rem;
+    // margin-top: -10rem;
     display: grid;
     grid-template-columns: auto 350px;
     gap: 1rem;
-    background-color: white;
+    // background-color: white;
     z-index: 10;
 
     @media only screen and (max-width:1080px) {
@@ -87,7 +87,7 @@
 
         .book_container{
             width: -webkit-fill-available !important;
-            margin: 1rem 2rem;
+            margin: 1rem 1rem;
         }
     }
 }

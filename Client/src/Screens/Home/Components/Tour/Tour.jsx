@@ -12,6 +12,7 @@ import pic8 from '../../../../Assets/italy.jpg'
 import pic9 from '../../../../Assets/respons.jpg'
 import pic10 from '../../../../Assets/covid.png'
 import pic11 from '../../../../Assets/private.jpg'
+import pic12 from '../../../../Assets/alltour.jpg'
 
 import { AiOutlineRight } from "react-icons/ai"
 
@@ -96,19 +97,19 @@ const Tour = () => {
             <div className="more">
                 <div className="more_box">
                     <img src={pic9} />
-                    <div className="name"> Explore the city of Finland  <AiOutlineRight /> </div>
+                    <div className="name"> Responsible Travel   <AiOutlineRight /> </div>
                 </div>
                 <div className="more_box">
                     <img src={pic10} />
-                    <div className="name"> Explore the city of Finland  <AiOutlineRight /> </div>
+                    <div className="name"> Covid-19 Information    <AiOutlineRight /> </div>
                 </div>
                 <div className="more_box">
                     <img src={pic11} />
-                    <div className="name"> Explore the city of Finland  <AiOutlineRight /> </div>
+                    <div className="name"> Private tours  <AiOutlineRight /> </div>
                 </div>
                 <div className="more_box">
-                    <img src={pic9} />
-                    <div className="name"> Explore the city of Finland  <AiOutlineRight /> </div>
+                    <img src={pic12} />
+                    <div className="name"> View All tours  <AiOutlineRight /> </div>
                 </div>
             </div>
 

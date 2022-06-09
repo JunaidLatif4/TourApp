@@ -9,13 +9,7 @@ const Award = (props) => {
     return (
 
         <div className="main_award">
-
-
-
             <div className='main_award_1'>
-
-
-
 
                 <div className="award_title">
                     {props.title ? props.title : "PREMIUM TRAVELS"}

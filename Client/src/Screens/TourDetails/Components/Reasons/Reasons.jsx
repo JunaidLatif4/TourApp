@@ -1,40 +1,107 @@
 import React from 'react'
+import './Reasons.scss'
+import van from '../../../../Assets/van.png'
+import calender from '../../../../Assets/calendar.png'
+import reward from '../../../../Assets/guaranteed.png'
+import leaf from '../../../../Assets/ecology.png'
 
-import Car from "../../../../Assets/van.png"
-import Badge from "../../../../Assets/guaranteed.png"
-import Calender from "../../../../Assets/calendar.png"
-import Wave from "../../../../Assets/ecology.png"
-
-import "./Reasons.scss"
-
-const Reasons = () => {
+const Award = (props) => {
     return (
-        <>
-            <div className="reasons_container">
-                <div className="title">
-                    <span> 4 </span>reasons to choose Craicin's
+
+        <div className="reasons_container">
+            <div className='main_award_1'>
+
+                <div className="award_title">
+                    {props.title ? props.title : "4 REASONS TO CHOOSE CRAICIN"}
                 </div>
-                <div className="card_box">
-                    <div className="card">
-                        <img src={Car} alt="Error" />
-                        <p> Travel the local way on small group tours of 16 people or fewer </p>
+
+                <div className="award_icon">
+                    <div className="van">
+
+                        <div className="van_img">
+                            <img src={van} />
+                        </div>
+
+                        <div className="van_para">
+                            Travel in small groups or private tours
+                        </div>
                     </div>
-                    <div className="card">
-                        <img src={Badge} alt="Error" />
-                        <p> You'll have a guaranteed experience, or your money back</p>
+                    <div className="van">
+
+                        <div className="van_img">
+                            <img src={reward} />
+                        </div>
+
+                        <div className="van_para">
+                            You'll have a guaranteed experience or your money back
+                        </div>
                     </div>
-                    <div className="card">
-                        <img src={Calender} alt="Error" />
-                        <p> Guaranteed departures: you book, you go</p>
+                    <div className="van">
+
+                        <div className="van_img">
+                            <img src={calender} />
+                        </div>
+
+                        <div className="van_para">
+                            Guaranteed departures: you book, you go
+                        </div>
                     </div>
-                    <div className="card">
-                        <img src={Wave} alt="Error" />
-                        <p> Our eco-friendly tours support local communities</p>
+                    <div className="van">
+
+                        <div className="van_img">
+                            <img src={leaf} />
+                        </div>
+
+                        <div className="van_para">
+                            Our eco-friendly tours support local communities
+                        </div>
                     </div>
+
+
+
                 </div>
+
+                <div className="line">
+                    <hr />
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
-        </>
+            {
+                props.details != false &&
+                <div className="backcol">
+                <div className="main_award_2">
+                    <div className="para1">
+                        Get your suitcases, cameras, and thermos flasks ready, because it’s time to combine little-known legends with classic destinations on our friendly mini-coach tours of the UK & Europe.
+                    </div>
+                    <div className="para1">
+                        Each trip comes with a driver-guide who knows the stories, sights, and secrets of the areas you travel through; every itinerary is tested by travel-loving locals; and you get the chance to support the communities you visit.
+                    </div>
+
+                    <div className="para1">
+                        So, what are you waiting for? Get planning, get packing, and go beyond the guidebooks.
+                    </div>
+                </div>
+                </div>
+            }
+
+        </div>
     )
 }
 
-export default Reasons
+export default Award

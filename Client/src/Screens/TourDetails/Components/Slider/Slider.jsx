@@ -11,7 +11,11 @@ const Slider = () => {
     return (
         <>
             <div className="slider_container">
-
+                <div className="backcol"></div>
+                <div className="backcol2"></div>
+                <div className="detail">
+                    The Greek Island : Mykonos , Santorinin & Crete
+                </div>
                 <Carousel autoPlay showThumbs={false}>
                     <div>
                         <img src={Slider1} />
@@ -23,9 +27,6 @@ const Slider = () => {
                         <img src={Slider3} />
                     </div>
                 </Carousel>
-                <div className="detail">
-                    Venture through breath-taking landscapes, quaint villages, and epic castles on this journey to the ‘Misty Isle’.
-                </div>
             </div>
         </>
     )
