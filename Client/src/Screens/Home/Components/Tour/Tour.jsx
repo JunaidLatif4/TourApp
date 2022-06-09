@@ -13,6 +13,8 @@ import pic9 from '../../../../Assets/respons.jpg'
 import pic10 from '../../../../Assets/covid.png'
 import pic11 from '../../../../Assets/private.jpg'
 
+import { AiOutlineRight } from "react-icons/ai"
+
 import './Tour.scss'
 
 import { useSelector } from "react-redux"
@@ -63,10 +65,8 @@ const Tour = () => {
                                 index <= 6 &&
                                 <>
                                     <div className="img_box" onClick={() => goToCountry(data, "country")}>
+                                        <img src={data.img.public} alt="" />
                                         <div className="title">Tour {data.title}</div>
-                                        <div className="leyr">
-                                            <img src={data.img.public} alt="" />
-                                        </div>
                                     </div>
                                 </>
                             )
@@ -93,12 +93,60 @@ const Tour = () => {
             <div className="tour_title2">
                 Explore more
             </div>
-
-
             <div className="more">
-                <img src={pic9} />
-                <img src={pic10} />
-                <img src={pic11} />
+                <div className="more_box">
+                    <img src={pic9} />
+                    <div className="name"> Explore the city of Finland  <AiOutlineRight /> </div>
+                </div>
+                <div className="more_box">
+                    <img src={pic10} />
+                    <div className="name"> Explore the city of Finland  <AiOutlineRight /> </div>
+                </div>
+                <div className="more_box">
+                    <img src={pic11} />
+                    <div className="name"> Explore the city of Finland  <AiOutlineRight /> </div>
+                </div>
+                <div className="more_box">
+                    <img src={pic9} />
+                    <div className="name"> Explore the city of Finland  <AiOutlineRight /> </div>
+                </div>
+            </div>
+
+
+            <div style={{ marginTop: "4rem" }} className="tour_title2">
+                The Latest in Travel
+            </div>
+            <div className="more2">
+                <div className="more_box">
+                    <img src={pic9} />
+                    <div className="details">
+                        <div className="name"> Social Network </div>
+                        <div className="title"> Trip that you'll never ever forget </div>
+                        <div className="detail">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis et totam dignissimos architecto adipisci iusto fugit perspiciatis, maiores dolores voluptatem?</div>
+                        <div className="break"></div>
+                        <div className="author">Jhone Parker</div>
+                    </div>
+                </div>
+                <div className="more_box">
+                    <img src={pic10} />
+                    <div className="details">
+                        <div className="name"> Social Network </div>
+                        <div className="title"> Trip that you'll never ever forget </div>
+                        <div className="detail">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis et totam dignissimos architecto adipisci iusto fugit perspiciatis, maiores dolores voluptatem?</div>
+                        <div className="break"></div>
+                        <div className="author">Jhone Parker</div>
+                    </div>
+                </div>
+                <div className="more_box">
+                    <img src={pic11} />
+                    <div className="details">
+                        <div className="name"> Social Network </div>
+                        <div className="title"> Trip that you'll never ever forget </div>
+                        <div className="detail">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis et totam dignissimos architecto adipisci iusto fugit perspiciatis, maiores dolores voluptatem?</div>
+                        <div className="break"></div>
+                        <div className="author">Jhone Parker</div>
+                    </div>
+                </div>
             </div>
 
 

@@ -56,13 +56,13 @@ const Home2 = () => {
             <div className="home_container">
                 <Award />
                 <Tour />
-                <Dragon />
+                {/* <Dragon /> */}
                 <Insta />
             </div>
             {/* <Partner /> */}
             <Look />
             <Footer />
-            <Pay />
+            {/* <Pay /> */}
         </>
     )
 }

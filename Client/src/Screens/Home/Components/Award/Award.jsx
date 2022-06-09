@@ -90,6 +90,7 @@ const Award = (props) => {
             </div>
             {
                 props.details != false &&
+                <div className="backcol">
                 <div className="main_award_2">
                     <div className="para1">
                         Get your suitcases, cameras, and thermos flasks ready, because it’s time to combine little-known legends with classic destinations on our friendly mini-coach tours of the UK & Europe.
@@ -101,6 +102,7 @@ const Award = (props) => {
                     <div className="para1">
                         So, what are you waiting for? Get planning, get packing, and go beyond the guidebooks.
                     </div>
+                </div>
                 </div>
             }
 

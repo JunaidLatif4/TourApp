@@ -19,7 +19,7 @@ const Look = () => {
         </div>
         <div className="subscribe">
           <input type="text" placeholder='Enter Email' />
-          <button>subscribe</button>
+          <button>Subscribe</button>
         </div>
       </div>
 

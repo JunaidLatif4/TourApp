@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.52fbaf11.css",
-    "main.js": "/static/js/main.22c35474.js",
+    "main.css": "/static/css/main.9aedd1f8.css",
+    "main.js": "/static/js/main.47dfdf5c.js",
     "static/media/back.jpg": "/static/media/back.7d4faa86ff383208ba0e.jpg",
     "static/media/background.jpg": "/static/media/background.7989e99fee539df9265d.jpg",
     "static/media/detail_img.jpg": "/static/media/detail_img.7989e99fee539df9265d.jpg",
@@ -37,11 +37,11 @@
     "static/media/dragon.jpg": "/static/media/dragon.baee0a8e61cfd52dad4f.jpg",
     "static/media/ireland.jpg": "/static/media/ireland.1fbaa71cb68ba17fb5ef.jpg",
     "static/media/scot.jpg": "/static/media/scot.9d4d3b5ef613bcc14418.jpg",
+    "static/media/card1.jpg": "/static/media/card1.9ea3f4d89c29cdca79c8.jpg",
     "static/media/scot.png": "/static/media/scot.4f33da3666f682dbb1de.png",
     "static/media/guaranteed.png": "/static/media/guaranteed.f0a7bf3e8e65479b54d2.png",
     "static/media/green.png": "/static/media/green.f2fcf6150800a139cfa0.png",
     "static/media/e.png": "/static/media/e.e3ef109137c617c3873d.png",
-    "static/media/footer_logo.png": "/static/media/footer_logo.83d4c694300c993f1aa7.png",
     "static/media/ecology.png": "/static/media/ecology.f501f846abc584399d7e.png",
     "static/media/p_bg.jpg": "/static/media/p_bg.73d0977c3dfe7ffc4616.jpg",
     "static/media/calendar.png": "/static/media/calendar.64ae05f5215d350d10da.png",
@@ -53,11 +53,11 @@
     "static/media/contact.png": "/static/media/contact.b4a0945a968ad241be39.png",
     "static/media/trv2.png": "/static/media/trv2.908888a2988307199a6d.png",
     "index.html": "/index.html",
-    "main.52fbaf11.css.map": "/static/css/main.52fbaf11.css.map",
-    "main.22c35474.js.map": "/static/js/main.22c35474.js.map"
+    "main.9aedd1f8.css.map": "/static/css/main.9aedd1f8.css.map",
+    "main.47dfdf5c.js.map": "/static/js/main.47dfdf5c.js.map"
   },
   "entrypoints": [
-    "static/css/main.52fbaf11.css",
-    "static/js/main.22c35474.js"
+    "static/css/main.9aedd1f8.css",
+    "static/js/main.47dfdf5c.js"
   ]
 }
