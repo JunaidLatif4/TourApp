@@ -1,8 +1,11 @@
-.cards_container{
+.cards_container {
     display: grid;
     grid-template-columns: 250px auto;
     gap: 1rem;
 
+    @media screen and(max-width:800px) {
+        display: flex;
+    }
     .options {
         display: flex;
         flex-direction: column;
@@ -85,13 +88,19 @@
             }
 
         }
+
+        @media screen and(max-width:800px) {
+            display: none;
+        }
     }
 
 
     .cards_box {
         width: -webkit-fill-available;
-        
-        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
         .card {
             display: grid;
             grid-template-columns: 250px auto 150px;
@@ -99,7 +108,7 @@
 
             .img_box {
                 width: -wekit-fill-available;
-                height: 200px;
+                // height: 200px;
                 position: relative;
 
                 img {
@@ -109,7 +118,7 @@
 
                 .price {
                     position: absolute;
-                    bottom: 35px;
+                    bottom: 4px;
                     height: 35px;
                     left: 0;
                     right: 0;
@@ -127,7 +136,7 @@
                 }
             }
 
-            .details{
+            .details {
                 display: flex;
                 gap: .5rem;
                 flex-direction: column;
@@ -135,27 +144,29 @@
                 font-size: .9rem;
                 color: #6d6d6d;
 
-                .title{
+                .title {
                     font-size: medium;
                     font-weight: bold;
                 }
-                span{
+
+                span {
                     font-size: medium;
                 }
 
             }
 
-            .find{
+            .find {
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
                 gap: .4rem;
                 font-size: .8rem;
 
-                span{
+                span {
                     color: #6DAAA2;
                 }
 
-                button{
+                button {
                     margin-top: .5rem;
                     padding: .7rem .5rem;
                     font-size: large;
@@ -164,6 +175,32 @@
                     border: none;
                     cursor: pointer;
                     border-radius: 50rem;
+                }
+            }
+
+            @media screen and(max-width:1050px) {
+                grid-template-columns: 250px auto;
+                gap: .2rem;
+
+                .find {
+                    justify-content: flex-start;
+
+                    button {
+                        width: -webkit-fill-available;
+                    }
+                }
+            }
+            @media screen and(max-width:600px) {
+                display: flex;
+                flex-direction: column;
+                gap: .2rem;
+
+                .find {
+                    justify-content: flex-start;
+
+                    button {
+                        width: -webkit-fill-available;
+                    }
                 }
             }
         }

@@ -16,96 +16,30 @@ import insta10 from '../../../../Assets/insta10.jpg'
 import insta11 from '../../../../Assets/insta11.jpg'
 import insta12 from '../../../../Assets/insta12.jpg'
 const Insta = () => {
+
+  let imgs = [insta1, insta2, insta3, insta4, insta5, insta6, insta7, insta8, insta9, insta10, insta11, insta12]
+
   return (
-    <div className='main_insta'>
-
-
-      <div className="insta_title">
-        #craicintours
-      </div>
-
-      <div className="instagram">
-
-
-        <div className="insta_line_1">
-
-          <div className="insta1">
-            <img src={insta1} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-          <div className="insta2">
-            <img src={insta2} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-          <div className="insta3">
-            <img src={insta3} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-          <div className="insta4">
-            <img src={insta4} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-
-
-        </div>
-
-
-
-
-        <div className="insta_line_2">
-
-          <div className="insta5">
-            <img src={insta5} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-          <div className="insta6">
-            <img src={insta6} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-          <div className="insta7">
-            <img src={insta7} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-          <div className="insta8">
-            <img src={insta8} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-
-
-        </div>
-
-
-
-        <div className="insta_line_3">
-
-          <div className="insta9">
-            <img src={insta9} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-          <div className="insta10">
-            <img src={insta10} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-          <div className="insta11">
-            <img src={insta11} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-          <div className="insta12">
-            <img src={insta12} />
-            <InstagramIcon className='insta_icon' />
-          </div>
-
-
-        </div>
-
+    <div className="insta_container">
+      <div className="title"> #craicintours </div>
+      <div className="insta_box">
+        {
+          imgs.map((data , index) => {
+            return (
+              index <= 7 &&
+              <>
+                <div className="img_box">
+                  <img src={data} alt="ERROR" />
+                  <div className="insta_logo">
+                    <InstagramIcon />
+                  </div>
+                </div>
+              </>
+            )
+          })
+        }
 
       </div>
-
-
-
-
-
-
     </div>
   )
 }

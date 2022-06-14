@@ -55,8 +55,39 @@
                 cursor: pointer;
                 color: white;
 
-                &:hover{
+                &:hover {
                     color: black;
+                }
+            }
+        }
+
+        @media screen and (max-width:900px) {
+            padding: 7rem 0;
+
+            .title {
+                font-size: 1.7rem;
+            }
+
+            .subscribe {
+                input {
+                    padding: .65rem .5rem;
+                    border-radius: .3rem;
+                    width: 230px;
+                }
+            }
+        }
+        @media screen and (max-width:450px) {
+            padding: 7rem 0;
+
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .subscribe {
+                input {
+                    padding: .6rem .4rem;
+                    border-radius: .3rem;
+                    width: 200px;
                 }
             }
         }

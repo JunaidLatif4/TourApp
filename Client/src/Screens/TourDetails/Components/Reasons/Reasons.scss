@@ -61,12 +61,38 @@
                 }
 
             }
+            @media(max-width:900px) {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
 
-            // @media(max-width:1000px) {
-            //     .van{
-            //         width: 150px;
-            //     }
-            // }
+                .van {
+                    width: -webkit-fill-available;
+
+                    img {
+                        width: calc(50% - 10px);
+                    }
+
+                    .van_para {
+                        font-size: .85rem;
+                    }
+                }
+            }
+            @media(max-width:450px) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                .van {
+                    width: -webkit-fill-available;
+
+                    img {
+                        width: calc(50% - 10px);
+                    }
+
+                    .van_para {
+                        font-size: .85rem;
+                    }
+                }
+            }
 
         }
 

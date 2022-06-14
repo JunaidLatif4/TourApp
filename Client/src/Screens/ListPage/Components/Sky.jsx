@@ -23,7 +23,7 @@ const Sky = (props) => {
         <div className='main_sky'>
 
 
-            <div className="bus_1">
+            {/* <div className="bus_1">
                 <div className="bus">
                     <div className="bus_img">
                         <img src={props.data.s3Box1Img.public} />
@@ -57,8 +57,6 @@ const Sky = (props) => {
                 </div>
 
             </div>
-
-
             <div className="bus_2">
 
                 <div className="bus">
@@ -94,8 +92,37 @@ const Sky = (props) => {
                 </div>
 
 
-            </div>
+            </div> */}
 
+            <div className="card_box">
+                <div className="card">
+                    <img src={props.data.s3Box1Img.public} alt="ERROR" />
+                    <div className="title">{props.data.s3Box1Heading}</div>
+                    <div className="detail">
+                        {
+                            ReactHtmlParser(props.data.s3Box1Detail)
+                        }
+                    </div>
+                </div>
+                <div className="card">
+                    <img src={props.data.s3Box2Img.public} alt="ERROR" />
+                    <div className="title">{props.data.s3Box2Heading}</div>
+                    <div className="detail">
+                        {
+                            ReactHtmlParser(props.data.s3Box2Detail)
+                        }
+                    </div>
+                </div>
+                <div className="card">
+                    <img src={props.data.s3Box3Img.public} alt="ERROR" />
+                    <div className="title">{props.data.s3Box3Heading}</div>
+                    <div className="detail">
+                        {
+                            ReactHtmlParser(props.data.s3Box3Detail)
+                        }
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -107,14 +134,14 @@ const Sky = (props) => {
 
                 <Award title="The Craicin's experience" details={false} />
 
-                <div className="our">
+                {/* <div className="our">
                     <span className='skye'>Our Skye Tours</span>
 
                     <div className="under_line">
 
                     </div>
 
-                </div>
+                </div> */}
 
 
 

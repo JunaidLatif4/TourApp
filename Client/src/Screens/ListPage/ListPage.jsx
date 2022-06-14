@@ -37,7 +37,7 @@ const Home2 = () => {
             {/* <Partner /> */}
             <Look />
             <Footer />
-            <Pay />
+            {/* <Pay /> */}
         </>
     )
 }

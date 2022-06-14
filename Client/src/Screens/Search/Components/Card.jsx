@@ -102,9 +102,9 @@ const Card = () => {
                             <div> Departing from: <span> EDINBURGH </span> </div>
                         </div>
                         <div className="find">
+                            {/* <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
                             <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
+                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div> */}
                             <button> find out more </button>
                         </div>
                     </div>
@@ -119,9 +119,9 @@ const Card = () => {
                             <div> Departing from: <span> EDINBURGH </span> </div>
                         </div>
                         <div className="find">
+                            {/* <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
                             <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
+                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div> */}
                             <button> find out more </button>
                         </div>
                     </div>
@@ -136,9 +136,9 @@ const Card = () => {
                             <div> Departing from: <span> EDINBURGH </span> </div>
                         </div>
                         <div className="find">
+                            {/* <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
                             <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
+                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div> */}
                             <button> find out more </button>
                         </div>
                     </div>
@@ -153,9 +153,9 @@ const Card = () => {
                             <div> Departing from: <span> EDINBURGH </span> </div>
                         </div>
                         <div className="find">
+                            {/* <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
                             <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
+                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div> */}
                             <button> find out more </button>
                         </div>
                     </div>
@@ -170,9 +170,9 @@ const Card = () => {
                             <div> Departing from: <span> EDINBURGH </span> </div>
                         </div>
                         <div className="find">
+                            {/* <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
                             <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
+                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div> */}
                             <button> find out more </button>
                         </div>
                     </div>
@@ -187,9 +187,9 @@ const Card = () => {
                             <div> Departing from: <span> EDINBURGH </span> </div>
                         </div>
                         <div className="find">
+                            {/* <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
                             <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
-                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div>
+                            <div> <span> <TiTick/> </span> 16 seat mini-coaches </div> */}
                             <button> find out more </button>
                         </div>
                     </div>

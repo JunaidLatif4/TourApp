@@ -1,10 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.9aedd1f8.css",
-    "main.js": "/static/js/main.47dfdf5c.js",
+    "main.css": "/static/css/main.01721308.css",
+    "main.js": "/static/js/main.86234158.js",
+    "static/media/alltour.jpg": "/static/media/alltour.09d9fdc95c9bf70df413.jpg",
+    "static/media/respons.jpg": "/static/media/respons.b4cc0c4461b50848c592.jpg",
     "static/media/back.jpg": "/static/media/back.7d4faa86ff383208ba0e.jpg",
+    "static/media/private.jpg": "/static/media/private.97c3ac62da917e1b73e6.jpg",
     "static/media/background.jpg": "/static/media/background.7989e99fee539df9265d.jpg",
     "static/media/detail_img.jpg": "/static/media/detail_img.7989e99fee539df9265d.jpg",
+    "static/media/covid.png": "/static/media/covid.003eeb405c4aaae5ea03.png",
     "static/media/news_img.jpg": "/static/media/news_img.9db61cb9196f2cac5a20.jpg",
     "static/media/insta2.jpeg": "/static/media/insta2.9bb836a8d4fb5af27d3a.jpeg",
     "static/media/insta3.jpeg": "/static/media/insta3.4857e6c68fd8608059d7.jpeg",
@@ -21,9 +25,7 @@
     "static/media/insta1.jpeg": "/static/media/insta1.01a20ed7a047cb00f6b0.jpeg",
     "static/media/insta7.jpg": "/static/media/insta7.8fbf9d4857bab4981910.jpg",
     "static/media/spain.jpg": "/static/media/spain.90f3487546410946c8ca.jpg",
-    "static/media/private.jpg": "/static/media/private.03fc67d8c3ddd4ac3385.jpg",
     "static/media/insta4.jpeg": "/static/media/insta4.9358e35be7176acd282c.jpeg",
-    "static/media/respons.jpg": "/static/media/respons.bd344a4d2a62157591fc.jpg",
     "static/media/insta6.jpg": "/static/media/insta6.560dd25f33b900bc59b5.jpg",
     "static/media/italy.jpg": "/static/media/italy.d5bf085db57f5767c119.jpg",
     "static/media/insta5.jpeg": "/static/media/insta5.969cffc399df7b6b73c9.jpeg",
@@ -46,18 +48,17 @@
     "static/media/p_bg.jpg": "/static/media/p_bg.73d0977c3dfe7ffc4616.jpg",
     "static/media/calendar.png": "/static/media/calendar.64ae05f5215d350d10da.png",
     "static/media/van.png": "/static/media/van.8dff5c793022b9f753b0.png",
-    "static/media/covid.png": "/static/media/covid.1ace72ca1523857a46f0.png",
     "static/media/abt.png": "/static/media/abt.7ff73c306560a88c88e5.png",
     "static/media/visa.png": "/static/media/visa.f3696d9f4bb5c8b2d3fc.png",
     "static/media/top.jpg": "/static/media/top.7619b34bd7d0cf0715e4.jpg",
     "static/media/contact.png": "/static/media/contact.b4a0945a968ad241be39.png",
     "static/media/trv2.png": "/static/media/trv2.908888a2988307199a6d.png",
     "index.html": "/index.html",
-    "main.9aedd1f8.css.map": "/static/css/main.9aedd1f8.css.map",
-    "main.47dfdf5c.js.map": "/static/js/main.47dfdf5c.js.map"
+    "main.01721308.css.map": "/static/css/main.01721308.css.map",
+    "main.86234158.js.map": "/static/js/main.86234158.js.map"
   },
   "entrypoints": [
-    "static/css/main.9aedd1f8.css",
-    "static/js/main.47dfdf5c.js"
+    "static/css/main.01721308.css",
+    "static/js/main.86234158.js"
   ]
 }

@@ -661,7 +661,6 @@ const Header = (props) => {
                             </>
                     }
 
-                </div>
                 {
                     props.search &&
                     <div className="search_box">
@@ -676,6 +675,7 @@ const Header = (props) => {
                         </div>
                     </div>
                 }
+                </div>
             </div>
         </>
     )

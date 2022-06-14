@@ -6,12 +6,6 @@
     align-items: center;
     padding-bottom: 30px;
 
-    // @media(max-width:600px) {
-    //     padding-left: 30px;
-    //     padding-right: 30px;
-    // }
-
-
 
     .main_award_1 {
         display: flex;
@@ -33,8 +27,11 @@
             margin-bottom: 10px;
             color: #6d6d6d;
 
-            @media(max-width:600px) {
+            @media(max-width:900px) {
                 font-size: 30px;
+            }
+            @media(max-width:450px) {
+                font-size: 25px;
             }
         }
 
@@ -62,11 +59,38 @@
 
             }
 
-            // @media(max-width:1000px) {
-            //     .van{
-            //         width: 150px;
-            //     }
-            // }
+            @media(max-width:900px) {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+
+                .van {
+                    width: -webkit-fill-available;
+
+                    img {
+                        width: calc(50% - 10px);
+                    }
+
+                    .van_para {
+                        font-size: .85rem;
+                    }
+                }
+            }
+            @media(max-width:450px) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                .van {
+                    width: -webkit-fill-available;
+
+                    img {
+                        width: calc(50% - 10px);
+                    }
+
+                    .van_para {
+                        font-size: .85rem;
+                    }
+                }
+            }
 
         }
 
@@ -81,8 +105,7 @@
             hr {
                 border-top: 2px solid #6DAAA2 !important;
                 width: 10%;
-                margin-top: 20px;
-                margin-bottom: 20px;
+                margin: 3rem 0;
             }
 
 
@@ -101,35 +124,30 @@
 
     .main_award_2 {
         width: 676px;
-        padding-left: 5px;
-        padding-right: 5px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 1rem;
-
-        @media(max-width:676px) {
-            width: 100%;
-        }
-
+        padding: 1rem 2rem;
 
         .para1 {
-            width: 666px;
             text-align: center;
             color: #6d6d6d;
             font-weight: 400;
             // margin: 0 0 10px;
 
-            @media(max-width:666px) {
-                width: 100%;
-            }
+        }
+
+        @media(max-width:900px) {
+            width: -webkit-fill-available;
+            font-size: .95rem;
+        }
+        @media(max-width:450px) {
+            width: -webkit-fill-available;
+            font-size: .8rem;
         }
 
     }
-
-
-
-
 
 }
