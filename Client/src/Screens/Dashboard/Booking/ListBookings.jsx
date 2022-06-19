@@ -13,7 +13,7 @@ import { MdEdit, MdDelete } from "react-icons/md"
 import { CgAddR } from "react-icons/cg"
 
 import { ToastContainer, toast } from 'react-toastify';
-import { getToursAPI, deleteTourAPI } from "../../../API/Tour"
+import { deletePlaceAPI } from "../../../API/Place"
 
 import "./ListBookings.scss"
 
@@ -38,7 +38,7 @@ const ListBookings = (props) => {
     }
     const deleteBooking = async (value) => {
         if (window.confirm("Press OK to delete Country") == true) {
-            let res = await deleteTourAPI(value)
+            let res = await deletePlaceAPI(value)
             if (res.error != null) {
                 toast.error(res.error.message, {
                     position: "top-right",

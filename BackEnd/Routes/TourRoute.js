@@ -16,6 +16,7 @@ Router.get("/", async (req, res) => {
     try {
         if (id) {
             const tour = await TourModel.findById(id)
+            // .populate("country").populate("path")
             if (tour) {
                 res.status(200).json({
                     message: "Tour Found Success",
@@ -28,6 +29,7 @@ Router.get("/", async (req, res) => {
             }
         } else if (country) {
             const tours = await TourModel.find({ country: country })
+            // .populate("country").populate("path")
             if (tours) {
                 res.status(200).json({
                     message: "Tours Found Success",
@@ -40,6 +42,7 @@ Router.get("/", async (req, res) => {
             }
         } else {
             const tours = await TourModel.find()
+            // .populate("country").populate("path")
             if (tours) {
                 res.status(200).json({
                     message: "All Tours Found Success",
@@ -59,7 +62,7 @@ Router.get("/", async (req, res) => {
     }
 })
 
-Router.post("/", upload.fields([{ name: "img" }, { name: "logo" }, { name: "s3Box1Img" }, { name: "s3Box2Img" }, { name: "s3Box3Img" }, { name: "s3Box4Img" }]), async (req, res) => {
+Router.post("/", upload.fields([{ name: "img1" }, { name: "img2" }, { name: "img3" }]), async (req, res) => {
     const { id, country } = req.query
     // const { title, s1Heading, s1Details } = req.body
 
@@ -105,13 +108,13 @@ Router.post("/", upload.fields([{ name: "img" }, { name: "logo" }, { name: "s3Bo
     }
 })
 
-Router.put("/", upload.fields([{ name: "img" }, { name: "logo" }, { name: "s3Box1Img" }, { name: "s3Box2Img" }, { name: "s3Box3Img" }, { name: "s3Box4Img" }]), async (req, res) => {
+Router.put("/", upload.fields([{ name: "img1" }, { name: "img2" }, { name: "img3" }]), async (req, res) => {
     const { id, country } = req.query
     // const { title, s1Heading, s1Details } = req.body
 
     try {
         if (id) {
-            if (req.files["img"].length >= 1 || req.files["logo"].length >= 1 || req.files["s3Box1Img"].length >= 1 || req.files["s3Box2Img"].length >= 1 || req.files["s3Box3Img"].length >= 1 || req.files["s3Box4Img"].length >= 1) {
+            if (req.files["img1"].length >= 1 || req.files["img2"].length >= 1 || req.files["img3"].length >= 1) {
                 let uploadFiles = {}
                 let processing = Object.keys(req.files).map(async (key, index) => {
                     let file = req.files[key]

@@ -20,9 +20,11 @@ import "./ListTours.scss"
 
 function createData(
     title,
-    tours
+    path,
+    time,
+    tour
 ) {
-    return { title, tours };
+    return { title, path, time, tour };
 }
 
 const ListTours = (props) => {
@@ -96,7 +98,7 @@ const ListTours = (props) => {
                 setRows((preValue) => {
                     return [
                         ...preValue,
-                        createData(data.title, data._id),
+                        createData(data.title, data.path, data.time, data._id),
                     ]
                 })
             })
@@ -107,7 +109,6 @@ const ListTours = (props) => {
         <>
             <div className="listtours_container">
                 <div className="heading">
-
                     <p> Tours List </p>
                     <p className="add" onClick={addTour}>
                         <CgAddR /> Add Tour
@@ -123,11 +124,9 @@ const ListTours = (props) => {
                                             <TableHead>
                                                 <TableRow>
                                                     <TableCell>Title</TableCell>
-                                                    {/* <TableCell align="right">Tours</TableCell> */}
-                                                    <TableCell align="right">Options</TableCell>
-                                                    {/* <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                                    <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                                    <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
+                                                    <TableCell align="center">Path</TableCell>
+                                                    <TableCell align="center">Time</TableCell>
+                                                    <TableCell align="right">Options</TableCell> 
                                                 </TableRow>
                                             </TableHead>
                                             <TableBody>
@@ -139,9 +138,9 @@ const ListTours = (props) => {
                                                         <TableCell component="th" scope="row">
                                                             {row.title}
                                                         </TableCell>
-                                                        {/* <TableCell align="right"> <NavLink to={`/dashboard/country/tour/${row.tours}`} > View Tours </NavLink> </TableCell> */}
-                                                        {/* <TableCell align="right"> <span onClick={() => editTour(row.tours)}> <MdEdit /> </span> <span onClick={() => editTour(row.tours)}> <MdDelete /> </span> </TableCell> */}
-                                                        <TableCell align="right"> <div style={{ display: "flex", gap: ".5rem", justifyContent: "end" }}> <span style={{ cursor: "pointer" }} onClick={() => editTour(row.tours)}> <MdEdit /> </span> <span style={{ cursor: "pointer" }} onClick={() => deleteTour(row.tours)}> <MdDelete /> </span></div> </TableCell>
+                                                        <TableCell align="center"> {row.path} </TableCell>
+                                                        <TableCell align="center"> {row.time} </TableCell>
+                                                        <TableCell align="right"> <div style={{ display: "flex", gap: ".5rem", justifyContent: "end" }}> <span style={{ cursor: "pointer" }} onClick={() => editTour(row.tour)}> <MdEdit /> </span> <span style={{ cursor: "pointer" }} onClick={() => deleteTour(row.tour)}> <MdDelete /> </span></div> </TableCell>
                                                     </TableRow>
                                                 ))}
                                             </TableBody>

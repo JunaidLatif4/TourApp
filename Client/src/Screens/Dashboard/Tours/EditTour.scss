@@ -85,6 +85,17 @@
                     font-size: large;
                     // height: 45px;
                 }
+                select {
+                    width: -webkit-fill-available;
+                    color: inherit;
+                    background-color: #E7E7E7;
+                    padding: 10px 15px;
+                    border: none;
+                    box-sizing: border-box;
+                    padding: .8rem;
+                    font-size: large;
+                    // height: 45px;
+                }
             }
 
             .img_box {

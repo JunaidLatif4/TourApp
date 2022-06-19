@@ -5,61 +5,49 @@ const tourSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "CountryModel"
     },
+    path: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "PathModel"
+    },
+    time: {
+        type: String
+    },
     title: {
         type: String
     },
-    img: {
+    img1: {
         type: Object
     },
-    logo: {
+    img2: {
         type: Object
     },
-    s1Heading: {
-        type: String
-    },
-    s1Details: {
-        type: String
-    },
-    facts: {
-        type: Array
-    },
-    s3Box1Heading: {
-        type: String
-    },
-    s3Box1Detail: {
-        type: String
-    },
-    s3Box1Img: {
+    img3: {
         type: Object
     },
-    s3Box2Heading: {
+    mapLink: {
         type: String
     },
-    s3Box2Detail: {
+    price: {
         type: String
     },
-    s3Box2Img: {
-        type: Object
-    },
-    s3Box3Heading: {
+    explore: {
         type: String
     },
-    s3Box3Detail: {
+    journey: {
         type: String
     },
-    s3Box3Img: {
-        type: Object
-    },
-    s3Box4Heading: {
+    start: {
         type: String
     },
-    s3Box4Detail: {
+    finish: {
         type: String
     },
-    s3Box4Img: {
-        type: Object
+    luggage: {
+        type: String
     },
-
+    discount: {
+        type: String
+    },
 })
 
 module.exports = mongoose.model("TourModel", tourSchema);

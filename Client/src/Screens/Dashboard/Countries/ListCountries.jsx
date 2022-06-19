@@ -124,6 +124,7 @@ const ListCountries = (props) => {
                                             <TableHead>
                                                 <TableRow>
                                                     <TableCell>Title</TableCell>
+                                                    <TableCell align="center">Places</TableCell>
                                                     <TableCell align="center">Tours</TableCell>
                                                     <TableCell align="right">Options</TableCell>
                                                     {/* <TableCell align="right">Fat&nbsp;(g)</TableCell>
@@ -140,6 +141,7 @@ const ListCountries = (props) => {
                                                         <TableCell component="th" scope="row">
                                                             {row.title}
                                                         </TableCell>
+                                                        <TableCell align="center"> <NavLink to={`/dashboard/country/place/${row.tours}`} > View Places </NavLink> </TableCell>
                                                         <TableCell align="center"> <NavLink to={`/dashboard/country/tour/${row.tours}`} > View Tours </NavLink> </TableCell>
                                                         <TableCell align="right"> <div style={{ display: "flex", gap: ".5rem", justifyContent: "end" }}> <span style={{ cursor: "pointer" }} onClick={() => editCountry(row.tours)}> <MdEdit /> </span> <span style={{ cursor: "pointer" }} onClick={() => deleteCountry(row.tours)}> <MdDelete /> </span></div> </TableCell>
                                                     </TableRow>

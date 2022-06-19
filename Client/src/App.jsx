@@ -10,10 +10,14 @@ import Login from './Screens/Dashboard/Login/Login'
 
 import { ToastContainer, toast } from 'react-toastify';
 import { getCountriesAPI } from './API/country';
+import { getPlaceAPI } from './API/Place';
 import { getToursAPI } from './API/Tour';
+import { getPathAPI } from './API/Path';
 import { useDispatch } from "react-redux"
 import { addCountryData } from "./GlobalStore/actions/addCountry"
 import { addTourData } from "./GlobalStore/actions/addTour"
+import { addPlaceData } from "./GlobalStore/actions/addPlace"
+import { addPathData } from "./GlobalStore/actions/addPath"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import 'react-toastify/dist/ReactToastify.css';
@@ -41,6 +45,42 @@ const App = () => {
             dispatch(addCountryData(res.data.data))
         }
     }
+    const gettingPlaces = async () => {
+        let res = await getPlaceAPI()
+        if (res.error != null) {
+            toast.error(res.error.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark"
+            });
+        } else {
+            localStorage.setItem("PlaceData", JSON.stringify(res.data.data))
+            dispatch(addPlaceData(res.data.data))
+        }
+    }
+    const gettingPath = async () => {
+        let res = await getPathAPI()
+        if (res.error != null) {
+            toast.error(res.error.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark"
+            });
+        } else {
+            localStorage.setItem("PathData", JSON.stringify(res.data.data))
+            dispatch(addPathData(res.data.data))
+        }
+    }
     const gettingTours = async () => {
         let res = await getToursAPI()
         if (res.error != null) {
@@ -61,7 +101,9 @@ const App = () => {
     }
     useEffect(() => {
         gettingCountries()
+        gettingPlaces()
         gettingTours()
+        gettingPath()
     })
 
     return (
@@ -81,7 +123,7 @@ const App = () => {
                 <Route exact path={"/"} component={Home} />
                 <Route path={"/list"} component={ListPage} />
                 <Route path={"/search"} component={Search} />
-                <Route path={"/tour"} component={TourDetails} />
+                <Route path={"/tour/:id"} component={TourDetails} />
                 <Route path={"/checkout"} component={Checkout} />
                 <Route path={"/dashboard"} component={Dashbaord} />
                 <Route path={"/login"} component={Login} />

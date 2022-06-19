@@ -1,12 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
+
 import ReactQuill from 'react-quill'
+
 import { BsArrowLeft } from "react-icons/bs"
 
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import { CircularProgress } from '@mui/material';
 
 import { ToastContainer, toast } from 'react-toastify';
 import { EditTourAPI, getToursAPI } from "../../../API/Tour"
+import { AddPathAPI, getPathAPI } from "../../../API/Path"
 
 import AddImg from "../../../Assets/addimg.png"
 
@@ -17,14 +27,22 @@ const EditTour = (props) => {
     let history = useHistory()
     let params = useParams()
 
-    const hidenInput = useRef(null)
+    const [openBox, setOpenBox] = useState(false);
+    const handleClickOpen = () => {
+        setOpenBox("true");
+    };
+    const handleClose = () => {
+        setOpenBox(false);
+    };
+
     const hidenInput1 = useRef(null)
     const hidenInput2 = useRef(null)
     const hidenInput3 = useRef(null)
-    const hidenInput4 = useRef(null)
-    const hidenInput5 = useRef(null)
 
     const [enteredData, setEnteredData] = useState(null)
+
+    const [paths, setPaths] = useState([])
+    const [enteredPathData, setEnteredPathData] = useState("")
 
     const enteringInputData = (event) => {
         let { name, value } = event.target
@@ -75,10 +93,7 @@ const EditTour = (props) => {
     }
 
     const addImg = (value) => {
-        if (value == "0") {
-            hidenInput.current.click()
-        }
-        else if (value == "1") {
+        if (value == "1") {
             hidenInput1.current.click()
         }
         else if (value == "2") {
@@ -86,12 +101,6 @@ const EditTour = (props) => {
         }
         else if (value == "3") {
             hidenInput3.current.click()
-        }
-        else if (value == "4") {
-            hidenInput4.current.click()
-        }
-        else if (value == "5") {
-            hidenInput5.current.click()
         }
     }
     const uploadingImg = (event, name) => {
@@ -124,12 +133,86 @@ const EditTour = (props) => {
         }
     }
 
+    const gettingPathData = async () => {
+        let res = await getPathAPI(null, props.country)
+        console.log("--------------", res);
+        if (res.error != null) {
+            toast.error(res.error.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark"
+            });
+        } else {
+            setPaths(res.data.data)
+        }
+    }
+    const savingPathData = async () => {
+        let res = await AddPathAPI({ title: enteredPathData, country: props.country })
+        console.log("--------------", res);
+        if (res.error != null) {
+            toast.error(res.error.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark"
+            });
+        } else {
+            toast.success("Path Added Success", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark"
+            });
+            setTimeout(() => {
+                handleClose()
+                gettingPathData()
+            }, 2000);
+        }
+    }
+  
     useEffect(() => {
+        gettingPathData(null, props.country)
         gettingtour()
     }, [])
 
     return (
         <>
+         <Dialog open={openBox == "true" ? true : false} onClose={handleClose}>
+                <DialogTitle>Adding Path</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        To Add new Path for the Tour Please add title in the Field.
+                    </DialogContentText>
+                    <TextField
+                        value={enteredPathData}
+                        onChange={(event) => setEnteredPathData(event.target.value)}
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Add Path"
+                        type="email"
+                        fullWidth
+                        variant="standard"
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={savingPathData}>Save</Button>
+                </DialogActions>
+            </Dialog>
             <div className="edittour_container">
                 <div className="title" onClick={() => history.go(0)}>
                     <BsArrowLeft /> Edit Tour
@@ -144,141 +227,117 @@ const EditTour = (props) => {
                                         <p> Title : </p>
                                         <input value={enteredData.title} name="title" onChange={enteringInputData} type="text" />
                                     </div>
-                                    <div className="img_box">
-                                        <div className="img_box">
-                                            <p> Upload Image </p>
-                                            <div className="img" onClick={() => addImg("0")}>
-                                                <img src={!enteredData.img ? AddImg : enteredData.img.public} alt="ERROR" />
-                                                <input ref={hidenInput} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "img")} style={{ display: "none" }} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="img_box">
-                                        <div className="img_box">
-                                            <p> Upload Logo </p>
-                                            <div className="img" onClick={() => addImg("5")}>
-                                                <img src={!enteredData.logo ? AddImg : enteredData.logo.public} alt="ERROR" />
-                                                <input ref={hidenInput5} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "logo")} style={{ display: "none" }} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="brack"></div>
-                                <div className="heading"> SECTION 2 (Details Section) </div>
-                                <div className="line">
-                                    <div className="input_box">
-                                        <p> Title : </p>
-                                        <input value={enteredData.s1Heading} name="s1Heading" onChange={enteringInputData} type="text" />
-                                    </div>
                                 </div>
                                 <div className="line">
-                                    <div className="input_box">
-                                        <p> Details : </p>
-                                        <ReactQuill value={enteredData.s1Details} onChange={(value) => enteringQuilData(value, "s1Details")} />
-                                    </div>
-                                    <div className="input_boxes">
-                                        <div className="input_box">
-                                            <p> Population : </p>
-                                            <input type="text" />
-                                        </div>
-                                        <div className="input_box">
-                                            <p> Size : </p>
-                                            <input type="text" />
-                                        </div>
-                                        <div className="input_box">
-                                            <p> Area : </p>
-                                            <input type="text" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="brack"></div>
-                                <div className="heading"> SECTION 3 (Boxes Section) </div>
-                                <div className="title">
-                                    Box 1 :
-                                </div>
-                                <div className="line">
-                                    <div className="input_box">
-                                        <p> Title : </p>
-                                        <input value={enteredData.s3Box1Heading} name="s3Box1Heading" onChange={enteringInputData} type="text" />
-                                    </div>
-                                    <div className="input_box">
-                                        <p> Details : </p>
-                                        <ReactQuill value={enteredData.s3Box1Detail} onChange={(value) => enteringQuilData(value, "s3Box1Detail")} />
-                                    </div>
                                     <div className="img_box">
                                         <div className="img_box">
-                                            <p> Upload Image </p>
+                                            <p> Image 1 </p>
                                             <div className="img" onClick={() => addImg("1")}>
-                                                <img src={!enteredData.s3Box1Img ? AddImg : enteredData.s3Box1Img.public} alt="ERROR" />
-                                                <input ref={hidenInput1} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "s3Box1Img")} style={{ display: "none" }} />
+                                                <img src={!enteredData.img1 ? AddImg : enteredData.img1.public} alt="ERROR" />
+                                                <input ref={hidenInput1} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "img1")} style={{ display: "none" }} />
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="title">
-                                    Box 2 :
-                                </div>
-                                <div className="line">
-                                    <div className="input_box">
-                                        <p> Title : </p>
-                                        <input value={enteredData.s3Box2Heading} name="s3Box2Heading" onChange={enteringInputData} type="text" />
-                                    </div>
-                                    <div className="input_box">
-                                        <p> Details : </p>
-                                        <ReactQuill value={enteredData.s3Box2Detail} onChange={(value) => enteringQuilData(value, "s3Box2Detail")} />
-                                    </div>
                                     <div className="img_box">
                                         <div className="img_box">
-                                            <p> Upload Image </p>
+                                            <p> Image 2 </p>
                                             <div className="img" onClick={() => addImg("2")}>
-                                                <img src={!enteredData.s3Box2Img ? AddImg : enteredData.s3Box2Img.public} alt="ERROR" />
-                                                <input ref={hidenInput2} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "s3Box2Img")} style={{ display: "none" }} />
+                                                <img src={!enteredData.img2 ? AddImg : enteredData.img2.public} alt="ERROR" />
+                                                <input ref={hidenInput2} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "img2")} style={{ display: "none" }} />
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="title">
-                                    Box 3 :
-                                </div>
-                                <div className="line">
-                                    <div className="input_box">
-                                        <p> Title : </p>
-                                        <input value={enteredData.s3Box3Heading} name="s3Box3Heading" onChange={enteringInputData} type="text" />
-                                    </div>
-                                    <div className="input_box">
-                                        <p> Details : </p>
-                                        <ReactQuill value={enteredData.s3Box3Detail} onChange={(value) => enteringQuilData(value, "s3Box3Detail")} />
-                                    </div>
                                     <div className="img_box">
                                         <div className="img_box">
-                                            <p> Upload Image </p>
+                                            <p> Image 3 </p>
                                             <div className="img" onClick={() => addImg("3")}>
-                                                <img src={!enteredData.s3Box3Img ? AddImg : enteredData.s3Box3Img.public} alt="ERROR" />
-                                                <input ref={hidenInput3} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "s3Box3Img")} style={{ display: "none" }} />
+                                                <img src={!enteredData.img3 ? AddImg : enteredData.img3.public} alt="ERROR" />
+                                                <input ref={hidenInput3} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "img3")} style={{ display: "none" }} />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="title">
-                                    Box 4 :
+                                <div className="brack"></div>
+                                <div className="heading"> SECTION 2 (Path , Time) </div>
+                                <div className="line">
+                                    <div className="input_box" style={{ marginBottom: "3rem" }}>
+                                        <p> SelectPath : </p>
+                                        <select name="path" id="path" value={enteredData.path} onChange={enteringInputData}>
+                                            <option value="null">-- No Path --</option>
+                                            {
+                                                paths && paths.length >= 1 &&
+                                                paths.map((data) => {
+                                                    return (
+                                                        <>
+                                                            <option value={data._id}>{data.title}</option>
+                                                        </>
+                                                    )
+                                                })
+
+                                            }
+                                        </select>
+                                        <div className="btn">
+                                            <button onClick={handleClickOpen}> Add Path </button>
+                                        </div>
+                                    </div>
+                                    <div className="input_box" style={{ marginBottom: "3rem" }}>
+                                        <p> SelectTime : </p>
+                                        <select name="time" id="time" value={enteredData.time} onChange={enteringInputData}>
+                                            <option value="1">1</option>
+                                            <option value="2-4">2 - 4</option>
+                                            <option value="5-6">5 - 6</option>
+                                            <option value="8-17">8 - 17</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="brack"></div>
+                                <div className="heading"> SECTION 3 (Map Section) </div>
+                                <div className="line">
+                                    <div className="input_box" style={{ marginBottom: "3rem" }}>
+                                        <p> MapLink : </p>
+                                        <input value={enteredData.mapLink} name="mapLink" onChange={enteringInputData} type="text" />
+                                    </div>
+                                </div>
+                                <div className="brack"></div>
+                                <div className="heading"> SECTION 4 (Explore , Journey) </div>
+                                <div className="line">
+                                    <div className="input_box" style={{ marginBottom: "3rem" }}>
+                                        <p> Explore : </p>
+                                        <ReactQuill value={enteredData.explore} onChange={(value) => enteringQuilData(value, "explore")} />
+                                    </div>
+                                    <div className="input_box">
+                                        <p> Journey : </p>
+                                        <ReactQuill value={enteredData.journey} onChange={(value) => enteringQuilData(value, "journey")} />
+                                    </div>
+                                </div>
+                                <div className="brack"></div>
+                                <div className="heading"> SECTION 5 (Details) </div>
+                                <div className="line">
+                                    <div className="input_box" style={{ marginBottom: "3rem" }}>
+                                        <p> Start : </p>
+                                        <ReactQuill value={enteredData.start} onChange={(value) => enteringQuilData(value, "start")} />
+                                    </div>
+                                    <div className="input_box">
+                                        <p> Finish : </p>
+                                        <ReactQuill value={enteredData.finish} onChange={(value) => enteringQuilData(value, "finish")} />
+                                    </div>
                                 </div>
                                 <div className="line">
-                                    <div className="input_box">
-                                        <p> Title : </p>
-                                        <input value={enteredData.s3Box4Heading} name="s3Box4Heading" onChange={enteringInputData} type="text" />
+                                    <div className="input_box" style={{ marginBottom: "3rem" }}>
+                                        <p> Luggage : </p>
+                                        <ReactQuill value={enteredData.luggage} onChange={(value) => enteringQuilData(value, "luggage")} />
                                     </div>
                                     <div className="input_box">
-                                        <p> Details : </p>
-                                        <ReactQuill value={enteredData.s3Box4Detail} onChange={(value) => enteringQuilData(value, "s3Box4Detail")} />
+                                        <p> Discount : </p>
+                                        <ReactQuill value={enteredData.discount} onChange={(value) => enteringQuilData(value, "discount")} />
                                     </div>
-                                    <div className="img_box">
-                                        <div className="img_box">
-                                            <p> Upload Image </p>
-                                            <div className="img" onClick={() => addImg("4")}>
-                                                <img src={!enteredData.s3Box4Img ? AddImg : enteredData.s3Box4Img.public} alt="ERROR" />
-                                                <input ref={hidenInput4} type="file" accept="image/png , image/jpeg" onChange={(event) => uploadingImg(event, "s3Box4Img")} style={{ display: "none" }} />
-                                            </div>
-                                        </div>
+                                </div>
+                                <div className="brack"></div>
+                                <div className="heading"> SECTION 6 (Price) </div>
+                                <div className="line">
+                                    <div className="input_box">
+                                        <p> Price : </p>
+                                        <input value={enteredData.price} name="price" onChange={enteringInputData} type="text" />
                                     </div>
                                 </div>
                                 <div className="btn">

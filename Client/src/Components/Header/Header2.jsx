@@ -90,7 +90,10 @@ const Header = (props) => {
     let history = useHistory()
 
     let countryData = useSelector((state) => state.countryData)
+    let placeData = useSelector((state) => state.placeData)
     let tourData = useSelector((state) => state.tourData)
+    let pathData = useSelector((state) => state.pathData)
+
     console.log("-----------------------", countryData);
 
     const [expanded, setExpanded] = React.useState('flase');
@@ -116,7 +119,10 @@ const Header = (props) => {
         id: null,
         title: null
     })
-    const [selectedTours, setSelectedTour] = useState(null)
+    const [selectedPlace, setSelectedPlace] = useState(null)
+    const [selectedPath, setSelectedPath] = useState(null)
+    const [selectedTour, setSelectedTour] = useState(null)
+    const [tourTImes, setToureTimes] = useState(["1", "2-4", "5-6", "8-17"])
 
     const selectLink = (title, id) => {
         setSelectedLink({
@@ -131,8 +137,15 @@ const Header = (props) => {
         })
     }
 
-    const goToTour = (value, view) => {
+    const goToPlace = (value, view) => {
         history.push({ pathname: "/list", state: { data: value, view } })
+        setSelectedLink({
+            id: null,
+            title: null
+        })
+    }
+    const goToTour = (id) => {
+        history.push(`/tour/${id}`)
         setSelectedLink({
             id: null,
             title: null
@@ -141,12 +154,16 @@ const Header = (props) => {
 
     useEffect(() => {
         if (selectedLink.id) {
-            let aa = tourData.filter((value) => value.country == selectedLink.id)
-            setSelectedTour(aa)
-            console.log("ppppppppp", aa);
+            let aa = placeData.filter((value) => value.country == selectedLink.id)
+            setSelectedPlace(aa)
+            let findPaths = pathData.filter((value) => value.country._id == selectedLink.id)
+            setSelectedPath(findPaths)
+            let findTours = tourData.filter((value) => value.country == selectedLink.id)
+            setSelectedTour(findTours)
         }
     }, [selectedLink])
-    console.log("rrrrrrrrrrrrrrrrrrrrrrrr", selectedTours);
+    console.log("PPPPPPPPPPPPPPPPPPPPPPPPP", selectedPath);
+    console.log("TTTTTTTTTTTTTTTTTTTTTTTTT", selectedTour);
     const toggleDrawer =
         (anchor, open) =>
             (event) => {
@@ -228,7 +245,7 @@ const Header = (props) => {
                             </p>
                         </div>
                         {
-                            selectedTours &&
+                            selectedPlace &&
 
                             <div style={{ display: selectedLink.id == null ? "none" : null }} className="nav_popup">
                                 <p className="close" onClick={removeLink}>
@@ -240,7 +257,55 @@ const Header = (props) => {
                                 <div className="boxes">
 
                                     <div className="left_box">
-                                        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                                        {
+                                            selectedPath &&
+                                            selectedPath.map((path) => {
+                                                return (
+                                                    selectedTour.filter((value) => value.path == path._id).length >= 1 &&
+                                                    <>
+                                                        <Accordion expanded={expanded === `${path._id}`} onChange={handleChange(`${path._id}`)}>
+                                                            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                                                                <Typography>Tour from {path.title} </Typography>
+                                                            </AccordionSummary>
+                                                            <AccordionDetails>
+                                                                {
+                                                                    tourTImes.map((time) => {
+                                                                        return (
+                                                                            selectedTour.filter((value) => value.path == path._id && value.time == time).length >= 1 &&
+                                                                            <>
+                                                                                <Accordion expanded={expanded2 === `${time}`} onChange={handleChange2(`${time}`)}>
+                                                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                                                                                        <Typography><li>
+                                                                                            {time} day tours from Edinburg
+                                                                                        </li></Typography>
+                                                                                    </AccordionSummary>
+                                                                                    <AccordionDetails>
+                                                                                        {
+                                                                                            selectedTour.filter((value) => value.path == path._id && value.time == time).map((data) => {
+                                                                                                return (
+                                                                                                    <>
+                                                                                                        <li onClick={() => goToTour(data._id)}>
+                                                                                                            {data.title}
+                                                                                                        </li>
+                                                                                                    </>
+                                                                                                )
+                                                                                            })
+
+                                                                                        }
+                                                                                    </AccordionDetails>
+                                                                                </Accordion>
+
+                                                                            </>
+                                                                        )
+                                                                    })
+                                                                }
+                                                            </AccordionDetails>
+                                                        </Accordion>
+                                                    </>
+                                                )
+                                            })
+                                        }
+                                        {/* <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                                             <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                                                 <Typography>Tour from Edinburgh </Typography>
                                             </AccordionSummary>
@@ -557,7 +622,7 @@ const Header = (props) => {
                                                     </AccordionDetails>
                                                 </Accordion>
                                             </AccordionDetails>
-                                        </Accordion>
+                                        </Accordion> */}
 
 
                                         {/* <p onClick={() => history.push("/tour")} >Tour Scotland + </p>
@@ -572,11 +637,11 @@ const Header = (props) => {
                                         </div>
                                         <div className="destinations">
                                             {
-                                                selectedTours.map((data) => {
+                                                selectedPlace.map((data) => {
                                                     return (
                                                         <>
                                                             {/* <div className="destination_box" onClick={() => history.push({ pathname: "/list", state: { data: data, view: "tour" } })}> */}
-                                                            <div className="destination_box" onClick={() => goToTour(data, "tour")}>
+                                                            <div className="destination_box" onClick={() => goToPlace(data, "tour")}>
                                                                 <img src={data.logo.public} alt="ERROR" />
                                                                 {data.title}
                                                             </div>
@@ -661,20 +726,20 @@ const Header = (props) => {
                             </>
                     }
 
-                {
-                    props.search &&
-                    <div className="search_box">
-                        <div className="heading">
-                            <BiBus /> Search our small group tours
-                        </div>
-                        <div className="input_box">
-                            <input type="text" placeholder='I want to experience...' />
-                            <div className="btn" onClick={() => history.push("/search")}>
-                                <BiSearchAlt2 />
+                    {
+                        props.search &&
+                        <div className="search_box">
+                            <div className="heading">
+                                <BiBus /> Search our small group tours
+                            </div>
+                            <div className="input_box">
+                                <input type="text" placeholder='I want to experience...' />
+                                <div className="btn" onClick={() => history.push("/search")}>
+                                    <BiSearchAlt2 />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
+                    }
                 </div>
             </div>
         </>

@@ -17,7 +17,7 @@ const AddCountry = () => {
     const hidenInput1 = useRef(null)
     const hidenInput2 = useRef(null)
     const hidenInput3 = useRef(null)
-    const hidenInput4 = useRef(null)
+    // const hidenInput4 = useRef(null)
 
     const [enteredData, setEnteredData] = useState({
         title: "",
@@ -34,9 +34,9 @@ const AddCountry = () => {
         s3Box3Heading: "",
         s3Box3Detail: "",
         s3Box3Img: "",
-        s3Box4Heading: "",
-        s3Box4Detail: "",
-        s3Box4Img: "",
+        // s3Box4Heading: "",
+        // s3Box4Detail: "",
+        // s3Box4Img: "",
     })
 
     const enteringInputData = (event) => {
@@ -70,9 +70,9 @@ const AddCountry = () => {
         else if (value == "3") {
             hidenInput3.current.click()
         }
-        else if (value == "4") {
-            hidenInput4.current.click()
-        }
+        // else if (value == "4") {
+        //     hidenInput4.current.click()
+        // }
     }
     const uploadingImg = (event, name) => {
         setEnteredData((preValue) => {
@@ -230,10 +230,10 @@ const AddCountry = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="title">
+                    {/* <div className="title">
                         Box 4 :
-                    </div>
-                    <div className="line">
+                    </div> */}
+                    {/* <div className="line">
                         <div className="input_box">
                             <p> Title : </p>
                             <input value={enteredData.s3Box4Heading} name="s3Box4Heading" onChange={enteringInputData} type="text" />
@@ -251,7 +251,7 @@ const AddCountry = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="btn">
                         <button onClick={savingData}> Add Country </button>
                     </div>

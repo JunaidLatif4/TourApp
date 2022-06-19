@@ -47,15 +47,15 @@ const countrySchema = mongoose.Schema({
     s3Box3Img: {
         type: Object
     },
-    s3Box4Heading: {
-        type: String
-    },
-    s3Box4Detail: {
-        type: String
-    },
-    s3Box4Img: {
-        type: Object
-    },
+    // s3Box4Heading: {
+    //     type: String
+    // },
+    // s3Box4Detail: {
+    //     type: String
+    // },
+    // s3Box4Img: {
+    //     type: Object
+    // },
 
 })
 

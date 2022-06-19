@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
+import { CircularProgress } from '@mui/material';
+
 import { CgAddR } from "react-icons/cg"
 
 import AddTour from './AddTour';
@@ -12,7 +14,6 @@ import { getCountriesAPI } from "../../../API/country"
 
 import 'react-quill/dist/quill.snow.css';
 import "./Tours.scss"
-import { CircularProgress } from '@mui/material';
 
 
 
@@ -82,7 +83,7 @@ const Tours = () => {
                                             <AddTour country={countryData._id} />
                                             :
                                             currentView.div == "edit" ?
-                                                <EditTour id={currentView.value} />
+                                                <EditTour id={currentView.value} country={countryData._id} />
                                                 :
                                                 null
                                 }
