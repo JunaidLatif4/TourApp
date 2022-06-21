@@ -233,6 +233,7 @@
         z-index: 5;
         align-self: center;
         background-color: white;
+        position: relative;
 
         .logo {
             width: 130px;
@@ -253,6 +254,101 @@
             font-size: medium;
         }
 
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #6DAAA2;
+            color: white;
+            padding: .4rem 2rem;
+            font-size: .8rem;
+            cursor: pointer;
+            box-sizing: border-box;
+            border: 1px solid #6DAAA2;
+            border-radius: .2rem;
+
+            &:hover {
+                background-color: white;
+                color: black;
+            }
+        }
+
+        .toggle {
+            display: flex !important;
+            height: auto !important;
+            transition: all .5s;
+        }
+
+        .detail_box {
+            display: none;
+            flex-direction: column;
+            gap: 2rem;
+            position: fixed;
+            background-color: white;
+            z-index: 5555;
+            left: 0;
+            transition: all .5s;
+            right: 0px;
+            height: 0px;
+            top: 100px;
+            color: black;
+            padding: 1rem;
+            box-shadow: 1px 1px 10px 1px black;
+
+            .country_box {
+                display: flex;
+                gap: .5rem;
+                justify-content: space-between;
+                font-size: .8rem;
+            }
+
+            .break {
+                height: 1px;
+                width: -webkit-fill-available;
+                background-color: black;
+            }
+
+            .see_container {
+                display: flex;
+                flex-direction: column;
+                gap: .3rem;
+
+                .heading {
+                    text-align: center;
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+
+                .see_box {
+                    width: -webkit-fill-available;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1rem;
+
+                    .destination_box {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .5rem;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: .8rem;
+
+                        img {
+                            width: 30px;
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .list_box {
+                    * {
+                        font-size: .8rem !important;
+                    }
+                }
+            }
+
+        }
+
         @media only screen and (min-width:860px) {
             display: none;
         }
@@ -260,6 +356,11 @@
         @media only screen and (max-width:600px) {
             .phone {
                 font-size: .8rem;
+            }
+        }
+        @media only screen and (max-width:550px) {
+            .phone {
+                display: none;
             }
         }
     }
@@ -618,6 +719,7 @@
         z-index: 5;
         align-self: center;
         background-color: white;
+        position: relative;
 
         .logo {
             width: 130px;
@@ -638,6 +740,101 @@
             font-size: medium;
         }
 
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #6DAAA2;
+            color: white;
+            padding: .4rem 2rem;
+            font-size: .8rem;
+            cursor: pointer;
+            box-sizing: border-box;
+            border: 1px solid #6DAAA2;
+            border-radius: .2rem;
+
+            &:hover {
+                background-color: white;
+                color: black;
+            }
+        }
+
+        .toggle {
+            display: flex !important;
+            height: auto !important;
+            transition: all .5s;
+        }
+
+        .detail_box {
+            display: none;
+            flex-direction: column;
+            gap: 2rem;
+            position: fixed;
+            background-color: white;
+            z-index: 5555;
+            left: 0;
+            transition: all .5s;
+            right: 0px;
+            height: 0px;
+            top: 100px;
+            color: black;
+            padding: 1rem;
+            box-shadow: 1px 1px 10px 1px black;
+
+            .country_box {
+                display: flex;
+                gap: .5rem;
+                justify-content: space-between;
+                font-size: .8rem;
+            }
+
+            .break {
+                height: 1px;
+                width: -webkit-fill-available;
+                background-color: black;
+            }
+
+            .see_container {
+                display: flex;
+                flex-direction: column;
+                gap: .3rem;
+
+                .heading {
+                    text-align: center;
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+
+                .see_box {
+                    width: -webkit-fill-available;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1rem;
+
+                    .destination_box {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .5rem;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: .8rem;
+
+                        img {
+                            width: 30px;
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .list_box {
+                    * {
+                        font-size: .8rem !important;
+                    }
+                }
+            }
+
+        }
+
         @media only screen and (min-width:860px) {
             display: none;
         }
@@ -647,8 +844,12 @@
                 font-size: .8rem;
             }
         }
+        @media only screen and (max-width:550px) {
+            .phone {
+                display: none;
+            }
+        }
     }
-
     .title_box {
         display: flex;
         flex-direction: column;

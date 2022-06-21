@@ -99,6 +99,8 @@ const Header = (props) => {
     const [expanded, setExpanded] = React.useState('flase');
     const [expanded2, setExpanded2] = React.useState('flase');
 
+    const [showMenu, setShowMenu] = useState(false)
+
     const handleChange =
         (panel) => (event, newExpanded) => {
             setExpanded(newExpanded ? panel : false);
@@ -162,8 +164,17 @@ const Header = (props) => {
             setSelectedTour(findTours)
         }
     }, [selectedLink])
-    console.log("PPPPPPPPPPPPPPPPPPPPPPPPP", selectedPath);
-    console.log("TTTTTTTTTTTTTTTTTTTTTTTTT", selectedTour);
+
+    const togelMenu = () => {
+        setShowMenu(!showMenu)
+        setSelectedLink({
+            id: null,
+            title: null
+        })
+        setExpanded("false")
+        setExpanded2("false")
+    }
+
     const toggleDrawer =
         (anchor, open) =>
             (event) => {
@@ -305,331 +316,6 @@ const Header = (props) => {
                                                 )
                                             })
                                         }
-                                        {/* <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                                            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                <Typography>Tour from Edinburgh </Typography>
-                                            </AccordionSummary>
-                                            <AccordionDetails>
-                                                <Accordion expanded={expanded2 === 'panel1-1'} onChange={handleChange2('panel1-1')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            1 day tours from Edinburg
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel1-2'} onChange={handleChange2('panel1-2')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            2 - 4 day tours from Edinburg
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel1-3'} onChange={handleChange2('panel1-3')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            5 - 6 day tours from Edinburg
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel1-4'} onChange={handleChange2('panel1-4')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            8 - 17 day tours from Edinburg
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                            </AccordionDetails>
-                                        </Accordion>
-                                        <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-                                            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                <Typography>Tour from Glasgow </Typography>
-                                            </AccordionSummary>
-                                            <AccordionDetails>
-                                                <Accordion expanded={expanded2 === 'panel2-1'} onChange={handleChange2('panel2-1')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            1 day tours from Glasgow
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li onClick={() => history.push("/tour")}>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li onClick={() => history.push("/tour")}>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel2-2'} onChange={handleChange2('panel2-2')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            2 - 4 day tours from Glasgow
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li onClick={() => history.push("/tour")}>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel2-3'} onChange={handleChange2('panel2-3')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            5 - 6 day tours from Glasgow
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li onClick={() => history.push("/tour")}>
-                                                            The Cotswolds
-                                                        </li>
-                                                        <li onClick={() => history.push("/tour")}>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel2-4'} onChange={handleChange2('panel2-4')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            8 - 17 day tours from Glasgow
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li onClick={() => history.push("/tour")}>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li onClick={() => history.push("/tour")}>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li onClick={() => history.push("/tour")}>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                            </AccordionDetails>
-                                        </Accordion>
-                                        <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-                                            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                <Typography>Tour from Inverness </Typography>
-                                            </AccordionSummary>
-                                            <AccordionDetails>
-                                                <Accordion expanded={expanded2 === 'panel3-1'} onChange={handleChange2('panel3-1')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            1 day tours from Inverness
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel3-2'} onChange={handleChange2('panel3-2')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            2 - 4 day tours from Inverness
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel3-3'} onChange={handleChange2('panel3-3')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            5 - 6 day tours from Inverness
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel3-4'} onChange={handleChange2('panel3-4')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            8 - 17 day tours from Inverness
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                            </AccordionDetails>
-                                        </Accordion>
-                                        <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-                                            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                <Typography>Tour from Aberdeen </Typography>
-                                            </AccordionSummary>
-                                            <AccordionDetails>
-                                                <Accordion expanded={expanded2 === 'panel4-1'} onChange={handleChange2('panel4-1')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            1 day tours from Aberdeen
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel4-2'} onChange={handleChange2('panel4-2')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            2 - 4 day tours from Aberdeen
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel4-3'} onChange={handleChange2('panel4-3')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            5 - 6 day tours from Aberdeen
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                                <Accordion expanded={expanded2 === 'panel4-4'} onChange={handleChange2('panel4-4')}>
-                                                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                                        <Typography><li>
-                                                            8 - 17 day tours from Aberdeen
-                                                        </li></Typography>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <li>
-                                                            The Cotswolds
-                                                        </li>
-
-                                                        <li>
-                                                            Dingle Peninsula
-                                                        </li>
-                                                        <li>
-                                                            Lake District
-                                                        </li>
-                                                    </AccordionDetails>
-                                                </Accordion>
-                                            </AccordionDetails>
-                                        </Accordion> */}
-
-
-                                        {/* <p onClick={() => history.push("/tour")} >Tour Scotland + </p>
-                                    <p onClick={() => history.push("/tour")} >Tour Scotland + </p>
-                                    <p onClick={() => history.push("/tour")} >Tour Scotland + </p>
-                                    <p onClick={() => history.push("/tour")} >Tour Scotland + </p>
-                                    <p onClick={() => history.push("/tour")} >Tour Scotland + </p> */}
                                     </div>
                                     <div className="right_box">
                                         <div className="heading">
@@ -640,7 +326,6 @@ const Header = (props) => {
                                                 selectedPlace.map((data) => {
                                                     return (
                                                         <>
-                                                            {/* <div className="destination_box" onClick={() => history.push({ pathname: "/list", state: { data: data, view: "tour" } })}> */}
                                                             <div className="destination_box" onClick={() => goToPlace(data, "tour")}>
                                                                 <img src={data.logo.public} alt="ERROR" />
                                                                 {data.title}
@@ -649,28 +334,6 @@ const Header = (props) => {
                                                     )
                                                 })
                                             }
-                                            {/*                                         
-                                        <div className="destination_box" onClick={() => history.push("/tour")}>
-                                            <p> <ImVine /> </p>
-                                            Whisky Tours
-                                        </div>
-                                        <div className="destination_box" onClick={() => history.push("/tour")}>
-                                            <p> <GiRattlesnake /> </p>
-                                            Loch Ness
-                                        </div>
-                                        <div className="destination_box" onClick={() => history.push("/tour")}>
-                                            <p> <FaMountain /> </p>
-                                            Scottish Highlands
-                                        </div>
-                                        <div className="destination_box" onClick={() => history.push("/tour")}>
-                                            <p> <GiDoubleFish /> </p>
-                                            Scottish Islands
-                                        </div>
-                                        <div className="destination_box" onClick={() => history.push("/tour")}>
-                                            <p> <WiNightAltCloudyHigh /> </p>
-                                            Loch Lomond
-                                        </div> */}
-
                                         </div>
                                     </div>
                                 </div>
@@ -678,23 +341,117 @@ const Header = (props) => {
                         }
                     </div>
                 </div>
+
                 <div className="mbl_nav_box">
                     <div className="logo" onClick={() => history.push("/")}>
                         <img src={Logo} alt="Error" />
                     </div>
-                    {/* <div>
-                        <Button onClick={toggleDrawer("top", true)}>{"top"}</Button>
-                        <SwipeableDrawer
-                            anchor={"top"}
-                            open={state["top"]}
-                            onClose={toggleDrawer("top", false)}
-                            onOpen={toggleDrawer("top", true)}
-                        >
-                            {list("top")}
-                        </SwipeableDrawer>
-                    </div> */}
                     <div className="phone">
                         <BsFillTelephoneFill /> +44(0) 131 226 3133
+                    </div>
+                    <div className="btn" onClick={togelMenu}>
+                        MENU
+                    </div>
+                    <div className={showMenu ? `detail_box toggle` : "detail_box"}>
+                        <div className="country_box">
+
+                            {
+                                countryData != null ?
+                                    countryData.map((data, index) => {
+                                        return (
+                                            index <= 3 &&
+                                            <>
+                                                <p style={{ color: selectedLink.id == data._id ? "black" : null }} onClick={() => selectLink(data.title, data._id)} > Tour {data.title} </p>
+
+                                            </>
+                                        )
+                                    })
+                                    :
+                                    <>
+                                        <p style={{ color: selectedLink == "scotland" ? "black" : null }} onClick={() => selectLink("scotland")} > Tour Scotland </p>
+                                        <p style={{ color: selectedLink == "england" ? "black" : null }} onClick={() => selectLink("england")} > Tour England </p>
+                                        <p style={{ color: selectedLink == "ireland" ? "black" : null }} onClick={() => selectLink("ireland")} > Tour Ireland </p>
+                                        <p style={{ color: selectedLink == "europ" ? "black" : null }} onClick={() => selectLink("europ")} > Tour Europe </p>
+                                    </>
+                            }
+                        </div>
+                        {
+                            selectedLink.id != null &&
+                            <>
+                                <div className="break"></div>
+
+                                <div className="see_container">
+                                    <p className='heading'> I'd like to see </p>
+                                    {
+                                        selectedPlace &&
+                                    <div className="see_box">
+                                        {
+                                            selectedPlace.map((data) => {
+                                                return (
+                                                    <>
+                                                        <div className="destination_box" onClick={() => goToPlace(data, "tour")}>
+                                                            <img src={data.logo.public} alt="ERROR" />
+                                                            {data.title}
+                                                        </div>
+                                                    </>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                        }
+                                </div>
+                                <div className="break"></div>
+                                <div className="list_box">
+                                    {
+                                        selectedPath &&
+                                        selectedPath.map((path) => {
+                                            return (
+                                                selectedTour.filter((value) => value.path == path._id).length >= 1 &&
+                                                <>
+                                                    <Accordion expanded={expanded === `${path._id}`} onChange={handleChange(`${path._id}`)}>
+                                                        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                                                            <Typography>Tour from {path.title} </Typography>
+                                                        </AccordionSummary>
+                                                        <AccordionDetails>
+                                                            {
+                                                                tourTImes.map((time) => {
+                                                                    return (
+                                                                        selectedTour.filter((value) => value.path == path._id && value.time == time).length >= 1 &&
+                                                                        <>
+                                                                            <Accordion expanded={expanded2 === `${time}`} onChange={handleChange2(`${time}`)}>
+                                                                                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                                                                                    <Typography><li>
+                                                                                        {time} day tours from Edinburg
+                                                                                    </li></Typography>
+                                                                                </AccordionSummary>
+                                                                                <AccordionDetails>
+                                                                                    {
+                                                                                        selectedTour.filter((value) => value.path == path._id && value.time == time).map((data) => {
+                                                                                            return (
+                                                                                                <>
+                                                                                                    <li onClick={() => goToTour(data._id)}>
+                                                                                                        {data.title}
+                                                                                                    </li>
+                                                                                                </>
+                                                                                            )
+                                                                                        })
+
+                                                                                    }
+                                                                                </AccordionDetails>
+                                                                            </Accordion>
+
+                                                                        </>
+                                                                    )
+                                                                })
+                                                            }
+                                                        </AccordionDetails>
+                                                    </Accordion>
+                                                </>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </>}
                     </div>
                 </div>
 

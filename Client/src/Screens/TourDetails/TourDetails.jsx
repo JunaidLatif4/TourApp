@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from '../../Components/Footer/Footer'
+import { useParams } from "react-router-dom"
 
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -27,6 +27,9 @@ import Partner from '../../Components/Partner/Partner'
 import Pay from '../../Components/Pay/Pay'
 import Reasons from './Components/Reasons/Reasons'
 import Slider from './Components/Slider/Slider'
+import Footer from '../../Components/Footer/Footer'
+
+import { useSelector } from 'react-redux';
 
 import Logo from "../../Assets/logo.png"
 import DetailImg from "../../Assets/detail_img.jpg"
@@ -43,13 +46,22 @@ const Transition = React.forwardRef(function Transition(
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
+
 const TourDetails = () => {
+
+    let params = useParams()
+    let id = params.id
+
+    let tourData = useSelector((state) => state.tourData)
+    let filterTour = tourData.filter((value) => value._id == id)
+    let currentTour = filterTour[0]
+
     const [open, setOpen] = React.useState(false);
+
 
     const handleClickOpen = () => {
         setOpen(true);
     };
-
     const handleClose = () => {
         setOpen(false);
     };
@@ -58,13 +70,13 @@ const TourDetails = () => {
             <div className="mbl_booking">
                 <button onClick={handleClickOpen}> View Dates </button>
             </div>
-            <Header text="The Isle of Skye" detail="3 day tour" img={DetailImg} />
+            <Header text={currentTour.title} detail={`${currentTour.time} day tour`} img={DetailImg} />
             <div className="tourdetails_container">
                 <div className="left_section">
-                    <Slider />
-                    <Map />
-                    <High />
-                    <Journey />
+                    <Slider data={currentTour} />
+                    <Map data={currentTour} />
+                    <High data={currentTour} />
+                    <Journey data={currentTour} />
                     <Reasons details={false} />
                 </div>
                 <div className="right_section">

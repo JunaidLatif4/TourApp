@@ -7,7 +7,7 @@ import Slider3 from "../../../../Assets/slider3.jpg"
 
 import "./Slider.scss"
 
-const Slider = () => {
+const Slider = (props) => {
     return (
         <>
             <div className="slider_container">
@@ -16,17 +16,19 @@ const Slider = () => {
                 <div className="detail">
                     The Greek Island : Mykonos , Santorinin & Crete
                 </div>
-                <Carousel autoPlay showThumbs={false}>
-                    <div>
-                        <img src={Slider1} />
-                    </div>
-                    <div>
-                        <img src={Slider2} />
-                    </div>
-                    <div>
-                        <img src={Slider3} />
-                    </div>
-                </Carousel>
+                <div className="slider_box">
+                    <Carousel autoPlay showThumbs={false}>
+                        <div>
+                            <img src={props.data.img3.public} />
+                        </div>
+                        <div>
+                            <img src={props.data.img2.public} />
+                        </div>
+                        <div>
+                            <img src={props.data.img1.public} />
+                        </div>
+                    </Carousel>
+                </div>
             </div>
         </>
     )

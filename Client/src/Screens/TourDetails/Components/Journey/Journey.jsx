@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -10,7 +11,7 @@ import { AiOutlinePlus } from "react-icons/ai"
 
 import "./Journey.scss"
 
-const Journey = () => {
+const Journey = (props) => {
     const [expanded, setExpanded] = useState(false);
 
     const handleChange =
@@ -24,10 +25,13 @@ const Journey = () => {
                     Your journey
                 </div>
                 <div className="detail">
-                    <p> Spend three days weaving through the landscapes, legends, and landmarks of Skye.</p>
+                    {
+                      ReactHtmlParser(props.data.journey)
+                    }
+                    {/* <p> Spend three days weaving through the landscapes, legends, and landmarks of Skye.</p>
                     <p>On your journey north, you’ll travel past the historic heart of Scotland, and learn about the battles between the Scottish and English.</p>
                     <p>In Skye, you’ll stay in the cute and cultural town of Portree, and explore the scenery that inspired countless myths and legends.</p>
-                    <p>And by the time you’re home, you’ll understand why this little island deserves its large reputation.</p>
+                    <p>And by the time you’re home, you’ll understand why this little island deserves its large reputation.</p> */}
                 </div>
                 <div className="accordian_box">
                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -44,40 +48,27 @@ const Journey = () => {
                           <div className="content">
                               <div className="info_box">
                                   <p className="heading">Starts</p>
-                                  <p className="info">Check-in closes at 08:45 (tour departs at 09:00) - Glasgow Buchanan Bus Station Pick Up, Glasgow Buchanan Bus Station (Stance between 23 to 32), Killermont Street, Glasgow, G2 3NW</p>
+                                  <p className="info">{ReactHtmlParser(props.data.start)}</p>
                               </div>
                               <div className="break"></div>
 
                               <div className="info_box">
                                   <p className="heading">Finishes (approx.)</p>
-                                  <p className="info">19:30 - Glasgow Buchanan Bus Station Drop Off, Glasgow Buchanan Bus Station, Killermont Street, Glasgow, G2 3NW</p>
+                                  <p className="info">{ReactHtmlParser(props.data.finish)}</p>
                               </div>
                               <div className="break"></div>
 
                               <div className="info_box">
                                   <p className="heading">Luggage</p>
-                                  <p className="info">You're restricted to 14kg (31lbs) of luggage per person. This should be one piece of luggage similar to an airline carry-on bag (approximately 55cm x 45cm x 25cm / 22in x 17in x 10in) and a small bag for onboard personal items.</p>
+                                  <p className="info">{ReactHtmlParser(props.data.luggage)}</p>
                               </div>
                               <div className="break"></div>
 
                               <div className="info_box">
                                   <p className="heading">Discounts</p>
-                                  <p className="info">Students, seniors over 60, and children between 5 and 15 (unfortunately, we don't carry children under 5 years old)</p>
+                                  <p className="info">{ReactHtmlParser(props.data.discount)}</p>
                               </div>
                               <div className="break"></div>
-
-                              <div className="info_box">
-                                  <p className="heading"></p>
-                                  <p className="info"></p>
-                              </div>
-                              <div className="break"></div>
-
-                              <div className="info_box">
-                                  <p className="heading"></p>
-                                  <p className="info"></p>
-                              </div>
-                              <div className="break"></div>
-
                           </div>
                         </AccordionDetails>
                     </Accordion>

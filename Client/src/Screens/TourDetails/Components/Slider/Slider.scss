@@ -31,4 +31,20 @@
         font-size: 1.4rem;
         font-weight: 600;
     }
+    .slider_box{
+        .slider-wrapper{
+            height: 320px;
+        }
+        .carousel .slide{
+        height: auto;
+
+        div{
+            height: 100%;
+            img{
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+       }
+    }
 }
