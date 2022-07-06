@@ -16,7 +16,7 @@ Router.get("/", async (req, res) => {
     try {
         if (id) {
             const tour = await TourModel.findById(id)
-            // .populate("country").populate("path")
+                .populate("country").populate("path")
             if (tour) {
                 res.status(200).json({
                     message: "Tour Found Success",
@@ -29,7 +29,7 @@ Router.get("/", async (req, res) => {
             }
         } else if (country) {
             const tours = await TourModel.find({ country: country })
-            // .populate("country").populate("path")
+                .populate("country").populate("path")
             if (tours) {
                 res.status(200).json({
                     message: "Tours Found Success",
@@ -42,7 +42,7 @@ Router.get("/", async (req, res) => {
             }
         } else {
             const tours = await TourModel.find()
-            // .populate("country").populate("path")
+                .populate("country").populate("path")
             if (tours) {
                 res.status(200).json({
                     message: "All Tours Found Success",
@@ -182,11 +182,11 @@ Router.delete("/", async (req, res) => {
 
     try {
         if (id) {
-            let deleteCountry = await CountryModel.findByIdAndDelete(id)
-            if (deleteCountry) {
+            let deleteTour = await TourModel.findByIdAndDelete(id)
+            if (deleteTour) {
                 res.status(200).json({
                     message: "Tour Deleted Success",
-                    data: deleteCountry
+                    data: deleteTour
                 })
             } else {
                 res.status(404).json({

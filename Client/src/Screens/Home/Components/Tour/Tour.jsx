@@ -24,6 +24,8 @@ const Tour = () => {
     let history = useHistory()
 
     let countryData = useSelector((state) => state.countryData)
+    let placeData = useSelector((state) => state.placeData)
+    let tourData = useSelector((state) => state.tourData)
 
     const goToCountry = (value, view) => {
         history.push({ pathname: "/list", state: { data: value, view } })
@@ -37,35 +39,37 @@ const Tour = () => {
             <div className="tour_title">
                 Where would you like to go?
             </div>
-
-            {/* <div className="line1">
-
-                {
-                    countryData != null ?
-                        <>
-                            <div className="img1">
-                                <img style={{ cursor: "pointer" }} onClick={() => goToCountry(countryData[0], "country")} src={countryData[0].img.public} />
-                                <img style={{ cursor: "pointer" }} onClick={() => goToCountry(countryData[1], "country")} src={countryData[1].img.public} />
-                            </div>
-                        </>
-                        :
-                        <div className="img1">
-                            <img src={pic1} />
-                            <img src={pic2} />
-                        </div>
-                }
-
-
-            </div> */}
-
             <div className="tour_box">
                 {
                     countryData != null ?
                         countryData.map((data, index) => {
                             return (
-                                index <= 6 &&
+                                index <= 3 &&
                                 <>
                                     <div className="img_box" onClick={() => goToCountry(data, "country")}>
+                                        <img src={data.img.public} alt="" />
+                                        <div className="title">Tour {data.title}</div>
+                                    </div>
+                                </>
+                            )
+                        })
+                        :
+                        <div className="no">
+                            No Tours Found
+                        </div>
+                }
+            </div>
+            <div className="tour_title">
+                Our Tours
+            </div>
+            <div className="tour_box">
+                {
+                    countryData != null ?
+                        placeData.map((data, index) => {
+                            return (
+                                index <= 3 &&
+                                <>
+                                    <div className="img_box" onClick={() => goToCountry(data, "place")}>
                                         <img src={data.img.public} alt="" />
                                         <div className="title">Tour {data.title}</div>
                                     </div>
@@ -83,13 +87,9 @@ const Tour = () => {
                 Explore all our tours
             </div>
 
-
-
-
             <div className="div_line">
                 <hr />
             </div>
-
 
             <div className="tour_title2">
                 Explore more
@@ -112,8 +112,6 @@ const Tour = () => {
                     <div className="name"> View All tours  <AiOutlineRight /> </div>
                 </div>
             </div>
-
-
             <div style={{ marginTop: "4rem" }} className="tour_title2">
                 The Latest in Travel
             </div>
@@ -149,14 +147,9 @@ const Tour = () => {
                     </div>
                 </div>
             </div>
-
-
             <div className="div_line">
                 <hr />
             </div>
-
-
-
         </div>
     )
 }

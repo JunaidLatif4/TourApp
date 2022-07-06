@@ -98,7 +98,7 @@ const ListTours = (props) => {
                 setRows((preValue) => {
                     return [
                         ...preValue,
-                        createData(data.title, data.path, data.time, data._id),
+                        createData(data.title, data.path.title, data.time, data._id),
                     ]
                 })
             })

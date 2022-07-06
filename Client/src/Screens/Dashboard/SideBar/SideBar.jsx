@@ -18,6 +18,9 @@ const SideBar = () => {
                     <div className="option" onClick={() => history.push("/dashboard/country")}>
                         Countries
                     </div>
+                    <div className="option" onClick={() => history.push("/dashboard/blogs")}>
+                        Blogs
+                    </div>
                     <div className="option" onClick={() => history.push("/dashboard/booking")}>
                         Booking
                     </div>

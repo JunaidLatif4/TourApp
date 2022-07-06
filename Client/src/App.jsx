@@ -120,13 +120,13 @@ const App = () => {
                 pauseOnHover
             />
             <Switch>
-                <Route exact path={"/"} component={Home} />
+                {/* <Route exact path={"/"} component={Home} />
                 <Route path={"/list"} component={ListPage} />
                 <Route path={"/search"} component={Search} />
                 <Route path={"/tour/:id"} component={TourDetails} />
                 <Route path={"/checkout"} component={Checkout} />
                 <Route path={"/dashboard"} component={Dashbaord} />
-                <Route path={"/login"} component={Login} />
+                <Route path={"/login"} component={Login} /> */}
             </Switch>
         </>
     )

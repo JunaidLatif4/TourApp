@@ -98,7 +98,7 @@ const Header = (props) => {
     const [expanded2, setExpanded2] = React.useState('flase');
 
     const [showMenu, setShowMenu] = useState(false)
-    
+
     const handleChange =
         (panel) => (event, newExpanded) => {
             setExpanded(newExpanded ? panel : false);
@@ -158,7 +158,7 @@ const Header = (props) => {
             setSelectedPlace(aa)
             let findPaths = pathData.filter((value) => value.country._id == selectedLink.id)
             setSelectedPath(findPaths)
-            let findTours = tourData.filter((value) => value.country == selectedLink.id)
+            let findTours = tourData.filter((value) => value.country._id == selectedLink.id)
             setSelectedTour(findTours)
         }
     }, [selectedLink])
@@ -223,7 +223,7 @@ const Header = (props) => {
                             <img src={Logo} alt="Error" />
                         </div>
                         <div className="links">
-                        {
+                            {
                                 countryData != null ?
                                     countryData.map((data, index) => {
                                         return (
@@ -259,7 +259,7 @@ const Header = (props) => {
                                     <AiOutlineClose />
                                 </p>
                                 <div className="title">
-                                    <img src={BlackMap} alt="" /> {selectedLink.title}
+                                    {selectedLink.title}
                                 </div>
                                 <div className="boxes">
 
@@ -268,7 +268,7 @@ const Header = (props) => {
                                             selectedPath &&
                                             selectedPath.map((path) => {
                                                 return (
-                                                    selectedTour.filter((value) => value.path == path._id).length >= 1 &&
+                                                    selectedTour.filter((value) => value.path._id == path._id).length >= 1 &&
                                                     <>
                                                         <Accordion expanded={expanded === `${path._id}`} onChange={handleChange(`${path._id}`)}>
                                                             <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
@@ -278,17 +278,17 @@ const Header = (props) => {
                                                                 {
                                                                     tourTImes.map((time) => {
                                                                         return (
-                                                                            selectedTour.filter((value) => value.path == path._id && value.time == time).length >= 1 &&
+                                                                            selectedTour.filter((value) => value.path._id == path._id && value.time == time).length >= 1 &&
                                                                             <>
                                                                                 <Accordion expanded={expanded2 === `${time}`} onChange={handleChange2(`${time}`)}>
                                                                                     <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                                                                                         <Typography><li>
-                                                                                            {time} day tours from Edinburg
+                                                                                            {time} day tours from {path.title}
                                                                                         </li></Typography>
                                                                                     </AccordionSummary>
                                                                                     <AccordionDetails>
                                                                                         {
-                                                                                            selectedTour.filter((value) => value.path == path._id && value.time == time).map((data) => {
+                                                                                            selectedTour.filter((value) => value.path._id == path._id && value.time == time).map((data) => {
                                                                                                 return (
                                                                                                     <>
                                                                                                         <li onClick={() => goToTour(data._id)}>
@@ -338,7 +338,7 @@ const Header = (props) => {
                     </div>
                 </div>
 
-               <div className="mbl_nav_box">
+                <div className="mbl_nav_box">
                     <div className="logo" onClick={() => history.push("/")}>
                         <img src={Logo} alt="Error" />
                     </div>
@@ -380,21 +380,21 @@ const Header = (props) => {
                                     <p className='heading'> I'd like to see </p>
                                     {
                                         selectedPlace &&
-                                    <div className="see_box">
-                                        {
-                                            selectedPlace.map((data) => {
-                                                return (
-                                                    <>
-                                                        <div className="destination_box" onClick={() => goToPlace(data, "tour")}>
-                                                            <img src={data.logo.public} alt="ERROR" />
-                                                            {data.title}
-                                                        </div>
-                                                    </>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                        }
+                                        <div className="see_box">
+                                            {
+                                                selectedPlace.map((data) => {
+                                                    return (
+                                                        <>
+                                                            <div className="destination_box" onClick={() => goToPlace(data, "tour")}>
+                                                                <img src={data.logo.public} alt="ERROR" />
+                                                                {data.title}
+                                                            </div>
+                                                        </>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    }
                                 </div>
                                 <div className="break"></div>
                                 <div className="list_box">
@@ -402,7 +402,7 @@ const Header = (props) => {
                                         selectedPath &&
                                         selectedPath.map((path) => {
                                             return (
-                                                selectedTour.filter((value) => value.path == path._id).length >= 1 &&
+                                                selectedTour.filter((value) => value.path._id == path._id).length >= 1 &&
                                                 <>
                                                     <Accordion expanded={expanded === `${path._id}`} onChange={handleChange(`${path._id}`)}>
                                                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
@@ -412,7 +412,7 @@ const Header = (props) => {
                                                             {
                                                                 tourTImes.map((time) => {
                                                                     return (
-                                                                        selectedTour.filter((value) => value.path == path._id && value.time == time).length >= 1 &&
+                                                                        selectedTour.filter((value) => value.path._id == path._id && value.time == time).length >= 1 &&
                                                                         <>
                                                                             <Accordion expanded={expanded2 === `${time}`} onChange={handleChange2(`${time}`)}>
                                                                                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
@@ -422,7 +422,7 @@ const Header = (props) => {
                                                                                 </AccordionSummary>
                                                                                 <AccordionDetails>
                                                                                     {
-                                                                                        selectedTour.filter((value) => value.path == path._id && value.time == time).map((data) => {
+                                                                                        selectedTour.filter((value) => value.path._id == path._id && value.time == time).map((data) => {
                                                                                             return (
                                                                                                 <>
                                                                                                     <li onClick={() => goToTour(data._id)}>
